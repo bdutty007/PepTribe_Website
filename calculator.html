@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<!-- ============================================================
+     PepTribe Peptide Calculator
+     Design & Development: DesignAdManagement.com
+     Client: PepTribe / Kevin Castello
+     Built: 2026-04-06
+     Unauthorized reproduction of this code is prohibited.
+     DesignAdManagement.com retains design rights.
+     DAM-REF: RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ==
+============================================================ -->
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-086273KHEH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-086273KHEH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peptide Calculator — PepTribe</title>
+  <meta name="description" content="Calculate your exact peptide reconstitution dosage. Select your syringe, vial quantity, bacteriostatic water, and desired dose." />
+  <meta name="author" content="DesignAdManagement.com" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#1A2B4A" />
+  <link rel="canonical" href="https://peptribe.com/calculator.html" />
+  <meta name="designer" content="DesignAdManagement.com" />
+  <meta name="developer" content="DesignAdManagement.com" />
+  <meta name="generator" content="Built by DesignAdManagement.com" />
+  <meta name="copyright" content="Design &amp; Development by DesignAdManagement.com" />
+  <meta name="creator" content="DesignAdManagement.com" />
+  <!-- DAM-SIG:RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ== -->
+  <!-- Build:2026-04-06 | Agency:DesignAdManagement.com | Project:PepTribe Calculator -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    /*
+     * PepTribe Calculator — Stylesheet
+     * Design & Development: DesignAdManagement.com
+     * Built: 2026-04-06
+     * DAM-CSS-SIG: RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ==
+     */
+    :root {
+      --teal:#20C9D9;--teal-d:#17a8b6;--purple:#6B4FBB;--orange:#FF8C42;--orange-d:#e07030;
+      --navy:#1A2B4A;--navy-m:#243760;--white:#fff;--off:#F6F9FC;--g50:#F8FAFC;
+      --g100:#EEF2F7;--g200:#E2E8F0;--g400:#94A3B8;--g500:#64748B;--g700:#334155;
+      --fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;--r:16px;
+      --sh:0 6px 28px rgba(26,43,74,.12);--shl:0 16px 56px rgba(26,43,74,.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);color:var(--navy);background:var(--off);overflow-x:hidden;line-height:1.6}
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+
+    /* NAV */
+    .calc-nav{background:var(--navy);padding:0 40px;display:flex;align-items:center;height:54px;
+      position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(10,18,35,.4)}
+    .calc-nav a{font-family:var(--fh);font-size:14px;font-weight:500;color:rgba(255,255,255,.75);
+      padding:6px 16px;border-radius:8px;transition:all .2s}
+    .calc-nav a:hover{color:var(--teal);background:rgba(32,201,217,.1)}
+    .calc-nav .back{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:13px}
+    .calc-nav .nav-drop{position:relative;list-style:none}
+    .calc-nav .nav-drop>a{cursor:pointer;font-family:var(--fh);font-size:14px;font-weight:600;color:rgba(255,255,255,.8);padding:6px 16px;border-radius:8px;text-decoration:none}
+    .calc-nav .nav-drop-menu{display:none;position:absolute;top:100%;right:0;min-width:200px;background:#0f1e36;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:2000}
+    .calc-nav .nav-drop:hover .nav-drop-menu{display:flex;flex-direction:column;gap:2px}
+    .calc-nav .nav-drop-menu a{font-size:13px;font-weight:600;color:rgba(255,255,255,.8);padding:10px 14px;border-radius:8px;white-space:nowrap;display:flex;align-items:center;gap:8px;text-decoration:none}
+    .calc-nav .nav-drop-menu a:hover{color:#20C9D9;background:rgba(32,201,217,.1)}
+    .calc-nav .logo{font-family:var(--fh);font-weight:800;font-size:18px;color:#fff;margin-left:auto}
+    .calc-nav .logo span{color:var(--teal)}
+
+    /* HERO BANNER */
+    .calc-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-m) 100%);
+      padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+    .calc-hero::before{content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(32,201,217,.1) 0%,transparent 70%)}
+    .calc-hero-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+    .calc-hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(32,201,217,.12);
+      border:1px solid rgba(32,201,217,.3);color:var(--teal);font-family:var(--fh);font-size:11px;
+      font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;
+      border-radius:50px;margin-bottom:20px}
+    .calc-hero h1{font-family:var(--fh);font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;
+      margin-bottom:14px;line-height:1.1}
+    .calc-hero h1 span{color:var(--teal)}
+    .calc-hero p{font-size:16px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7}
+
+    /* MAIN LAYOUT */
+    .calc-wrap{max-width:960px;margin:0 auto;padding:48px 24px 80px}
+
+    /* DISCLAIMER */
+    .ruo-banner{background:rgba(255,140,66,.08);border:1.5px solid rgba(255,140,66,.25);
+      border-radius:12px;padding:16px 22px;margin-bottom:36px;display:flex;align-items:flex-start;gap:12px}
+    .ruo-banner .ico{font-size:20px;flex-shrink:0;margin-top:2px}
+    .ruo-banner p{font-size:13px;color:var(--g500);line-height:1.65}
+    .ruo-banner strong{color:var(--orange-d);font-family:var(--fh)}
+
+    /* CALCULATOR CARD */
+    .calc-card{background:var(--white);border-radius:20px;box-shadow:var(--shl);overflow:hidden}
+
+    /* STEPS */
+    .calc-steps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .calc-step{padding:32px 36px;border-bottom:1.5px solid var(--g100);position:relative}
+    .calc-step:nth-child(odd){border-right:1.5px solid var(--g100)}
+    .calc-step:nth-last-child(-n+2){border-bottom:none}
+
+    .step-num{display:inline-flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;
+      font-family:var(--fh);font-size:12px;font-weight:800;margin-bottom:12px}
+    .step-label{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px}
+
+    /* OPTION BUTTONS */
+    .opt-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+    .opt-btn{font-family:var(--fh);font-size:13px;font-weight:600;padding:8px 16px;
+      border-radius:50px;border:2px solid var(--g200);background:var(--g50);color:var(--g500);
+      cursor:pointer;transition:all .2s;white-space:nowrap}
+    .opt-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(32,201,217,.05)}
+    .opt-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;
+      box-shadow:0 4px 12px rgba(32,201,217,.3)}
+
+    /* CUSTOM INPUT */
+    .custom-input-wrap{display:none;align-items:center;gap:8px;margin-top:8px}
+    .custom-input-wrap.show{display:flex}
+    .custom-input{padding:9px 14px;border-radius:10px;border:1.5px solid var(--g200);
+      font-family:var(--fb);font-size:14px;color:var(--navy);width:120px;outline:none;
+      transition:border-color .2s;background:var(--g50)}
+    .custom-input:focus{border-color:var(--teal);background:var(--white)}
+    .custom-unit-select{padding:9px 28px 9px 12px;border-radius:10px;border:1.5px solid var(--g200);
+      font-family:var(--fh);font-size:13px;font-weight:600;color:var(--g500);background:var(--g50);outline:none}
+    .custom-unit-select:focus{border-color:var(--teal);background:var(--white)}
+    .custom-unit{font-size:13px;color:var(--g400);font-family:var(--fh);font-weight:600}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* SYRINGE VISUAL */
+    .syringe-visual{padding:32px 36px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-m) 100%);
+      display:flex;flex-direction:column;align-items:center;gap:24px}
+
+    .syringe-container{position:relative;width:100%;max-width:460px}
+
+    /* SVG Syringe */
+    .syringe-svg-wrap{width:100%;display:flex;justify-content:center}
+
+    .result-box{background:rgba(32,201,217,.12);border:1.5px solid rgba(32,201,217,.3);
+      border-radius:14px;padding:20px 28px;text-align:center;width:100%;max-width:460px}
+    .result-box.warning{background:rgba(255,140,66,.1);border-color:rgba(255,140,66,.4)}
+    .result-label{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+    .result-box.warning .result-label{color:var(--orange-d)}
+    .result-value{font-family:var(--fh);font-size:36px;font-weight:900;color:#fff;line-height:1.1}
+    .result-sub{font-size:13px;color:rgba(255,255,255,.55);margin-top:6px}
+
+    .result-breakdown{background:rgba(255,255,255,.05);border-radius:10px;padding:16px 20px;
+      width:100%;max-width:460px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rb-item{text-align:center}
+    .rb-val{font-family:var(--fh);font-size:18px;font-weight:800;color:var(--teal)}
+    .rb-lbl{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+    /* RECONSTITUTION GUIDE */
+    .guide-section{padding:40px 36px;border-top:1.5px solid var(--g100)}
+    .guide-section h3{font-family:var(--fh);font-size:20px;font-weight:800;color:var(--navy);margin-bottom:24px}
+    .guide-steps{display:flex;flex-direction:column;gap:0}
+    .guide-step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--g100);align-items:flex-start}
+    .guide-step:last-child{border-bottom:none}
+    .gs-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--purple));
+      color:#fff;font-family:var(--fh);font-size:14px;font-weight:800;display:flex;
+      align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .gs-content h4{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .gs-content p{font-size:14px;color:var(--g500);line-height:1.65}
+
+    /* FOOTER */
+    .calc-footer{background:var(--navy);padding:24px 40px;display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .calc-footer p{font-size:12px;color:rgba(255,255,255,.3)}
+    .calc-footer a{color:var(--teal);font-weight:600}
+
+    @media(max-width:700px){
+      .calc-steps{grid-template-columns:1fr}
+      .calc-step:nth-child(odd){border-right:none}
+      .calc-step:nth-last-child(-n+2){border-bottom:1.5px solid var(--g100)}
+      .calc-step:last-child{border-bottom:none}
+      .calc-nav{padding:0 20px}
+      .calc-hero{padding:40px 20px}
+      .calc-wrap{padding:32px 16px 60px}
+      .guide-section{padding:32px 20px}
+      .syringe-visual{padding:28px 20px}
+    }
+
+    /* Arrow buttons */
+
+    /* Product cards */
+
+    @media(max-width:700px){
+    }
+
+  </style>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png"/>
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon-128.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="calc-nav" aria-label="Calculator navigation" data-dam="DesignAdManagement.com" data-build="2026-04-06">
+  <a href="https://peptribe.us/home" class="back">← Back to PepTribe</a>
+  <span class="logo">Pep<span>Tribe</span></span>
+  <li class="nav-drop" style="list-style:none;margin-left:auto"><a href="#">Protocols ▾</a><div class="nav-drop-menu"><a href="calculator.html">🧪 Calculator</a><a href="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a848ce062d4d706d4fef081.pdf" target="_blank" rel="noopener">📋 Protocols</a></div></li>
+  <a href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener" style="font-family:sans-serif;font-weight:700;font-size:13px;padding:7px 18px;border-radius:50px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.85);text-decoration:none">Login</a>
+</nav>
+
+<!-- HERO -->
+<div class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="badge">🧪 Research Tool</div>
+    <h1>Peptide <span>Reconstitution</span> Calculator</h1>
+    <p>Enter your syringe size, vial quantity, bacteriostatic water amount, and desired dose — we'll tell you exactly where to draw your syringe.</p>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="calc-wrap">
+
+  <!-- DISCLAIMER -->
+  <div class="ruo-banner">
+    <div class="ico">⚠️</div>
+    <p><strong>Research Use Only.</strong> This calculator is provided strictly for educational and research purposes. It does not constitute medical advice. Always consult a qualified healthcare professional before making any health decisions. Peptides discussed here have not been evaluated by the FDA for safety or efficacy in humans.</p>
+  </div>
+
+  <div class="calc-card" data-dam="DesignAdManagement.com">
+
+    <!-- STEPS GRID -->
+    <div class="calc-steps">
+
+      <!-- STEP 1: Syringe -->
+      <div class="calc-step">
+        <div class="step-num">1</div>
+        <div class="step-label">What is the total volume of your syringe?</div>
+        <div class="opt-row" id="syringeOpts">
+          <button class="opt-btn active" onclick="selectOpt('syringe', 0.3, this)">0.3 ml <small style="opacity:.6">(30 units)</small></button>
+          <button class="opt-btn" onclick="selectOpt('syringe', 0.5, this)">0.5 ml <small style="opacity:.6">(50 units)</small></button>
+          <button class="opt-btn" onclick="selectOpt('syringe', 1.0, this)">1.0 ml <small style="opacity:.6">(100 units)</small></button>
+        </div>
+      </div>
+
+      <!-- STEP 2: Vial Quantity -->
+      <div class="calc-step">
+        <div class="step-num">2</div>
+        <div class="step-label">Select peptide vial quantity</div>
+        <div style="display:flex;justify-content:center;margin-bottom:16px">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a5a89f21097b81195ecccce.webp" alt="Peptide Vial" width="400" height="400"
+            style="width:110px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(26,43,74,.15))"/>
+        </div>
+        <div class="opt-row">
+          <button class="opt-btn active" onclick="selectOpt('vial', 5, this)">5 mg</button>
+          <button class="opt-btn" onclick="selectOpt('vial', 10, this)">10 mg</button>
+          <button class="opt-btn" onclick="selectOpt('vial', 15, this)">15 mg</button>
+          <button class="opt-btn" onclick="selectOpt('vial', 'custom', this)">Other</button>
+        </div>
+        <div class="custom-input-wrap" id="vialCustom">
+          <input type="number" class="custom-input" id="vialCustomVal" placeholder="e.g. 20" min="1" oninput="customVal('vial', this.value)" />
+          <span class="custom-unit">mg</span>
+        </div>
+      </div>
+
+      <!-- STEP 3: Bacteriostatic Water -->
+      <div class="calc-step">
+        <div class="step-num">3</div>
+        <div class="step-label">How much bacteriostatic water are you adding?</div>
+        <div style="display:flex;justify-content:center;margin-bottom:16px">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a5a89f287e99392e8c4ff2a.webp" alt="Bacteriostatic Water" width="400" height="400"
+            style="width:110px;height:110px;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(26,43,74,.15))"/>
+        </div>
+        <div class="opt-row">
+          <button class="opt-btn active" onclick="selectOpt('water', 1, this)">1 ml</button>
+          <button class="opt-btn" onclick="selectOpt('water', 2, this)">2 ml</button>
+          <button class="opt-btn" onclick="selectOpt('water', 3, this)">3 ml</button>
+          <button class="opt-btn" onclick="selectOpt('water', 5, this)">5 ml</button>
+          <button class="opt-btn" onclick="selectOpt('water', 'custom', this)">Other</button>
+        </div>
+        <div class="custom-input-wrap" id="waterCustom">
+          <input type="number" class="custom-input" id="waterCustomVal" placeholder="e.g. 4" min="0.1" step="0.1" oninput="customVal('water', this.value)" />
+          <span class="custom-unit">ml</span>
+        </div>
+      </div>
+
+      <!-- STEP 4: Desired Dose -->
+      <div class="calc-step">
+        <div class="step-num">4</div>
+        <div class="step-label">How much peptide do you want in each dose?</div>
+        <div class="opt-row">
+          <button class="opt-btn active" onclick="selectOpt('dose', 50, this)">50 mcg</button>
+          <button class="opt-btn" onclick="selectOpt('dose', 100, this)">100 mcg</button>
+          <button class="opt-btn" onclick="selectOpt('dose', 250, this)">250 mcg</button>
+          <button class="opt-btn" onclick="selectOpt('dose', 500, this)">500 mcg</button>
+          <button class="opt-btn" onclick="selectOpt('dose', 'custom', this)">Other</button>
+        </div>
+        <div class="custom-input-wrap" id="doseCustom">
+          <input type="number" class="custom-input" id="doseCustomVal" placeholder="e.g. 200" min="1" oninput="customVal('dose', this.value)" />
+          <label class="sr-only" for="doseCustomUnit" id="doseCustomUnitLabel">Custom dose unit</label>
+          <select class="custom-unit-select" id="doseCustomUnit" onchange="customDoseUnit(this.value)">
+            <option value="mcg" selected>mcg</option>
+            <option value="mg">mg</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RESULT VISUAL -->
+    <div class="syringe-visual">
+
+      <!-- Syringe SVG -->
+      <div class="syringe-svg-wrap">
+        <svg id="syringeSVG" viewBox="0 0 480 100" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:480px">
+          <!-- Needle -->
+          <rect x="10" y="46" width="40" height="8" rx="2" fill="#94A3B8"/>
+          <polygon points="10,46 10,54 2,50" fill="#CBD5E1"/>
+          <!-- Barrel -->
+          <rect x="50" y="32" width="340" height="36" rx="6" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+          <!-- Fill level -->
+          <rect id="syringeFill" x="51" y="33" width="0" height="34" rx="5" fill="url(#fillGrad)"/>
+          <defs>
+            <linearGradient id="fillGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#20C9D9" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#6B4FBB" stop-opacity="0.9"/>
+            </linearGradient>
+          </defs>
+          <!-- Tick marks -->
+          <g id="ticks" stroke="rgba(255,255,255,0.25)" stroke-width="1"></g>
+          <!-- Plunger -->
+          <rect id="plunger" x="388" y="28" width="12" height="44" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <rect id="plungerHandle" x="400" y="36" width="28" height="28" rx="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- Units label -->
+          <text id="unitsLabel" x="220" y="20" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-family="Poppins,sans-serif" font-size="10" font-weight="600"></text>
+        </svg>
+      </div>
+
+      <!-- Result -->
+      <div class="result-box" id="resultBox">
+        <div class="result-label" id="resultLabel">Draw to</div>
+        <div class="result-value" id="resultValue">—</div>
+        <div class="result-sub" id="resultSub">Select your options above</div>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="result-breakdown" id="resultBreakdown">
+        <div class="rb-item">
+          <div class="rb-val" id="rbConc">—</div>
+          <div class="rb-lbl">mcg per unit</div>
+        </div>
+        <div class="rb-item">
+          <div class="rb-val" id="rbDoses">—</div>
+          <div class="rb-lbl">doses per vial</div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+    <!-- RECONSTITUTION GUIDE -->
+    <div class="guide-section">
+      <h3>🧫 Reconstitution Guide</h3>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="gs-num">1</div>
+          <div class="gs-content">
+            <h4>Prepare Your Environment</h4>
+            <p>Wash hands thoroughly and put on sterile gloves and goggles. Ensure your workspace is clean. You will need: lyophilized peptide vial, sterile syringe, bacteriostatic water, and alcohol swabs.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="gs-num">2</div>
+          <div class="gs-content">
+            <h4>Bring to Room Temperature</h4>
+            <p>Allow both the peptide powder and bacteriostatic water to reach room temperature before reconstituting. Cold solutions can interfere with the reconstitution process.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="gs-num">3</div>
+          <div class="gs-content">
+            <h4>Clean the Vial Tops</h4>
+            <p>Remove the center of the metal cap from the peptide vial. Disinfect the rubber stopper with an alcohol swab. Repeat for the bacteriostatic water vial.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="gs-num">4</div>
+          <div class="gs-content">
+            <h4>Add the Bacteriostatic Water</h4>
+            <p>Using a sterile syringe, carefully withdraw the required amount of bacteriostatic water. Tilt the peptide vial at a 45° angle and slowly inject the water down the interior wall — not directly onto the powder. This minimizes bubbles and ensures even dissolution.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="gs-num">5</div>
+          <div class="gs-content">
+            <h4>Gently Mix — Never Shake</h4>
+            <p>Gently roll the vial between your palms until the powder is fully dissolved. Never shake vigorously — this can degrade the peptide structure and reduce potency.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="gs-num">6</div>
+          <div class="gs-content">
+            <h4>Storage</h4>
+            <p>Store reconstituted peptide solution at +4°C (refrigerator) for short-term use — stable for approximately 3+ weeks. For long-term storage, freeze at -20°C or below in aliquots. Avoid repeated freeze-thaw cycles as these compromise peptide integrity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="calc-footer">
+  <p>⚠️ For research purposes only. Not medical advice. Always consult a qualified healthcare provider.</p>
+  <p><a href="https://peptribe.us/tc">Terms of Service</a> &nbsp;·&nbsp; <a href="https://peptribe.us/privacy">Privacy Policy</a> &nbsp;·&nbsp; Powered by <a href="https://dashboardlocal.com" target="_blank">Dashboard Local</a></p>
+</div>
+
+<script>
+  /**
+   * PepTribe Calculator — JavaScript
+   * Design & Development: DesignAdManagement.com
+   * Built: 2026-04-06
+   * DAM-JS-SIG: RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ==
+   */
+
+  // State
+  const state = { syringe: 0.3, vial: 5, water: 1, dose: 50, doseCustom: false, customDoseValue: null, customDoseUnit: 'mcg' };
+
+  function selectOpt(field, val, btn) {
+    // Deactivate siblings
+    btn.closest('.calc-step').querySelectorAll('.opt-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Show/hide custom input
+    const customWrap = document.getElementById(field + 'Custom');
+    if (customWrap) {
+      if (val === 'custom') {
+        customWrap.classList.add('show');
+        state[field] = null;
+        if (field === 'dose') {
+          state.doseCustom = true;
+          state.customDoseValue = null;
+          state.customDoseUnit = 'mcg';
+          document.getElementById('doseCustomUnit').value = 'mcg';
+        }
+      } else {
+        customWrap.classList.remove('show');
+        state[field] = val;
+        if (field === 'dose') {
+          state.doseCustom = false;
+          state.customDoseValue = null;
+        }
+        calculate();
+      }
+    } else {
+      state[field] = val;
+      calculate();
+    }
+  }
+
+  function customVal(field, val) {
+    const num = parseFloat(val);
+    if (!isNaN(num) && num > 0) {
+      if (field === 'dose') {
+        state.customDoseValue = num;
+        state[field] = getDoseInputMcg(num, state.customDoseUnit);
+      } else {
+        state[field] = num;
+      }
+      calculate();
+    }
+  }
+
+  function customDoseUnit(unit) {
+    state.customDoseUnit = unit;
+    const input = document.getElementById('doseCustomVal');
+    customVal('dose', input.value);
+  }
+
+  function getDoseInputMcg(value, unit) {
+    return unit === 'mg' ? value * 1000 : value;
+  }
+
+  function formatDoseValue(value) {
+    return Number.isInteger(value) ? value : Number(value.toFixed(3));
+  }
+
+  function formatDoseLabel(dose) {
+    if (!state.doseCustom || !state.customDoseValue) {
+      return `${formatDoseValue(dose)} mcg`;
+    }
+
+    if (state.customDoseUnit === 'mg') {
+      return `${formatDoseValue(state.customDoseValue)} mg (${formatDoseValue(dose)} mcg)`;
+    }
+
+    return `${formatDoseValue(dose)} mcg`;
+  }
+
+  function calculate() {
+    const { syringe, vial, water, dose } = state;
+    if (!syringe || !vial || !water || !dose) return;
+
+    const resultBox  = document.getElementById('resultBox');
+    const resultLabel = document.getElementById('resultLabel');
+    const resultValue = document.getElementById('resultValue');
+    const resultSub  = document.getElementById('resultSub');
+    const rbConc     = document.getElementById('rbConc');
+    const rbDoses    = document.getElementById('rbDoses');
+
+    // Concentration: mcg per ml
+    const concPerMl = (vial * 1000) / water; // vial in mg → mcg, divided by water ml
+
+    // Units on syringe
+    const totalUnits = syringe * 100; // 0.3ml = 30 units, etc.
+
+    // mcg per unit
+    const mcgPerUnit = concPerMl / 100;
+
+    // Units needed for desired dose
+    const unitsNeeded = dose / mcgPerUnit;
+
+    // Check if syringe is big enough
+    if (unitsNeeded > totalUnits) {
+      resultBox.classList.add('warning');
+      resultLabel.textContent = '⚠️ Warning';
+      resultValue.textContent = 'Too Large';
+      resultSub.textContent = `Your syringe (${totalUnits} units) cannot hold the ${formatDoseLabel(dose)} dose. Use a larger syringe or reduce your dose.`;
+    } else {
+      resultBox.classList.remove('warning');
+      resultLabel.textContent = `To achieve a ${formatDoseLabel(dose)} dose, draw to`;
+      resultValue.textContent = `${unitsNeeded.toFixed(1)} units`;
+      resultSub.textContent = `on your ${totalUnits}-unit (${syringe} ml) syringe`;
+    }
+
+    // Breakdown
+    rbConc.textContent  = mcgPerUnit.toFixed(1);
+    const doses = (vial * 1000) / dose;
+    rbDoses.textContent = doses % 1 === 0 ? doses : doses.toFixed(1);
+
+    // Update syringe SVG
+    updateSyringe(unitsNeeded, totalUnits, syringe);
+  }
+
+  function updateSyringe(unitsNeeded, totalUnits, syringeVol) {
+    const barrelX = 51, barrelW = 338;
+    const fillPct = Math.min(unitsNeeded / totalUnits, 1);
+    const fillW = barrelW * fillPct;
+
+    document.getElementById('syringeFill').setAttribute('width', fillW.toFixed(1));
+
+    // Plunger position (moves left as fill increases — plunger is at right side of fill)
+    const plungerX = 51 + fillW;
+    document.getElementById('plunger').setAttribute('x', (plungerX - 2).toFixed(1));
+    document.getElementById('plungerHandle').setAttribute('x', (plungerX + 10).toFixed(1));
+
+    // Tick marks
+    const ticks = document.getElementById('ticks');
+    ticks.innerHTML = '';
+    const numTicks = totalUnits;
+    for (let i = 0; i <= numTicks; i++) {
+      const x = 51 + (barrelW * i / numTicks);
+      const isMajor = i % 10 === 0;
+      const tickH = isMajor ? 14 : 7;
+      const y1 = 32;
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', x); line.setAttribute('x2', x);
+      line.setAttribute('y1', y1); line.setAttribute('y2', y1 + tickH);
+      line.setAttribute('stroke-width', isMajor ? '1.5' : '1');
+      ticks.appendChild(line);
+      if (isMajor && i > 0) {
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', x); text.setAttribute('y', '76');
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('fill', 'rgba(255,255,255,0.35)');
+        text.setAttribute('font-family', 'Poppins,sans-serif');
+        text.setAttribute('font-size', '9');
+        text.textContent = i;
+        ticks.appendChild(text);
+      }
+    }
+
+    document.getElementById('unitsLabel').textContent = `${syringeVol} ml syringe — ${totalUnits} units total`;
+  }
+
+  // Init | DesignAdManagement.com
+  calculate();
+
+</script>
+
+</body>
+<!-- ============================================================
+     End of PepTribe Calculator
+     Design & Development: DesignAdManagement.com
+     Built: 2026-04-06
+     DAM-END-SIG: RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ==
+============================================================ -->
+</html>
