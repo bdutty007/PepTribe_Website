@@ -8,8 +8,8 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Calculator | Imported unchanged | calculator.html |
 | Privacy Policy | Imported unchanged | privacy-policy.html |
 | Terms & Conditions (Terms of Service) | Imported unchanged | terms-of-service.html |
-| About Us | Incomplete: sections 1-8 of 9 imported; section 9 next | about-section-01.html, about-section-02.html, about-section-03.html, about-section-04.html, about-section-05.html, about-section-06.html, about-section-07.html, about-section-08.html |
-| Contact Us | Awaiting code | |
+| About Us | All 9 code sections imported; assembly pending | about-section-01.html, about-section-02.html, about-section-03.html, about-section-04.html, about-section-05.html, about-section-06.html, about-section-07.html, about-section-08.html, about-section-09.html |
+| Contact Us | Header and shared footer received; native form/cards pending | contact-section-01.html, about-section-09.html |
 | Scout | Awaiting code | |
 | Scout Thank You | Awaiting code | |
 | Products List | Awaiting platform details/code | |

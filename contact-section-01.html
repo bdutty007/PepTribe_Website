@@ -1,0 +1,212 @@
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-086273KHEH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-086273KHEH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peptide Calculator — PepTribe</title>
+  <meta name="description" content="Calculate your exact peptide reconstitution dosage. Select your syringe, vial quantity, bacteriostatic water, and desired dose." />
+  <meta name="author" content="DesignAdManagement.com" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#1A2B4A" />
+  <link rel="canonical" href="https://peptribe.com/calculator.html" />
+  <meta name="designer" content="DesignAdManagement.com" />
+  <meta name="developer" content="DesignAdManagement.com" />
+  <meta name="generator" content="Built by DesignAdManagement.com" />
+  <meta name="copyright" content="Design &amp; Development by DesignAdManagement.com" />
+  <meta name="creator" content="DesignAdManagement.com" />
+  <!-- DAM-SIG:RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ== -->
+  <!-- Build:2026-04-06 | Agency:DesignAdManagement.com | Project:PepTribe Calculator -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" /></noscript>
+  <style>
+    /*
+     * PepTribe Calculator — Stylesheet
+     * Design & Development: DesignAdManagement.com
+     * Built: 2026-04-06
+     * DAM-CSS-SIG: RGVzaWduQWRNYW5hZ2VtZW50LmNvbQ==
+     */
+    :root {
+      --teal:#20C9D9;--teal-d:#17a8b6;--purple:#6B4FBB;--orange:#FF8C42;--orange-d:#e07030;
+      --navy:#1A2B4A;--navy-m:#243760;--white:#fff;--off:#F6F9FC;--g50:#F8FAFC;
+      --g100:#EEF2F7;--g200:#E2E8F0;--g400:#94A3B8;--g500:#64748B;--g700:#334155;
+      --fh:'Poppins',sans-serif;--fb:'Inter',sans-serif;--r:16px;
+      --sh:0 6px 28px rgba(26,43,74,.12);--shl:0 16px 56px rgba(26,43,74,.18);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--fb);color:var(--navy);background:var(--off);overflow-x:hidden;line-height:1.6}
+    img{max-width:100%;}
+    a{text-decoration:none;color:inherit}
+
+    /* NAV */
+    .calc-nav{background:var(--navy);padding:0 40px;display:flex;align-items:center;height:54px;
+      position:sticky;top:0;z-index:100;box-shadow:0 4px 20px rgba(10,18,35,.4)}
+    .calc-nav a{font-family:var(--fh);font-size:14px;font-weight:500;color:rgba(255,255,255,.75);
+      padding:6px 16px;border-radius:8px;transition:all .2s}
+    .calc-nav a:hover{color:var(--teal);background:rgba(32,201,217,.1)}
+    .calc-nav .back{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);font-size:13px}
+    .calc-nav .nav-drop{position:relative;list-style:none}
+    .calc-nav .nav-drop>a{cursor:pointer;font-family:var(--fh);font-size:14px;font-weight:600;color:rgba(255,255,255,.8);padding:6px 16px;border-radius:8px;text-decoration:none}
+    .calc-nav .nav-drop-menu{display:none;position:absolute;top:100%;right:0;min-width:200px;background:#0f1e36;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px;box-shadow:0 12px 40px rgba(0,0,0,.4);z-index:2000}
+    .calc-nav .nav-drop:hover .nav-drop-menu{display:flex;flex-direction:column;gap:2px}
+    .calc-nav .nav-drop-menu a{font-size:13px;font-weight:600;color:rgba(255,255,255,.8);padding:10px 14px;border-radius:8px;white-space:nowrap;display:flex;align-items:center;gap:8px;text-decoration:none}
+    .calc-nav .nav-drop-menu a:hover{color:#20C9D9;background:rgba(32,201,217,.1)}
+    .calc-nav .logo{font-family:var(--fh);font-weight:800;font-size:18px;color:#fff;margin-left:auto}
+    .calc-nav .logo span{color:var(--teal)}
+
+    /* HERO BANNER */
+    .calc-hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-m) 100%);
+      padding:56px 40px;text-align:center;position:relative;overflow:hidden}
+    .calc-hero::before{content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(32,201,217,.1) 0%,transparent 70%)}
+    .calc-hero-inner{position:relative;z-index:2;max-width:700px;margin:0 auto}
+    .calc-hero .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(32,201,217,.12);
+      border:1px solid rgba(32,201,217,.3);color:var(--teal);font-family:var(--fh);font-size:11px;
+      font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;
+      border-radius:50px;margin-bottom:20px}
+    .calc-hero h1{font-family:var(--fh);font-size:clamp(28px,4vw,48px);font-weight:900;color:#fff;
+      margin-bottom:14px;line-height:1.1}
+    .calc-hero h1 span{color:var(--teal)}
+    .calc-hero p{font-size:16px;color:rgba(255,255,255,.65);max-width:520px;margin:0 auto;line-height:1.7}
+
+    /* MAIN LAYOUT */
+    .calc-wrap{max-width:960px;margin:0 auto;padding:48px 24px 80px}
+
+    /* DISCLAIMER */
+    .ruo-banner{background:rgba(255,140,66,.08);border:1.5px solid rgba(255,140,66,.25);
+      border-radius:12px;padding:16px 22px;margin-bottom:36px;display:flex;align-items:flex-start;gap:12px}
+    .ruo-banner .ico{font-size:20px;flex-shrink:0;margin-top:2px}
+    .ruo-banner p{font-size:13px;color:var(--g500);line-height:1.65}
+    .ruo-banner strong{color:var(--orange-d);font-family:var(--fh)}
+
+    /* CALCULATOR CARD */
+    .calc-card{background:var(--white);border-radius:20px;box-shadow:var(--shl);overflow:hidden}
+
+    /* STEPS */
+    .calc-steps{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .calc-step{padding:32px 36px;border-bottom:1.5px solid var(--g100);position:relative}
+    .calc-step:nth-child(odd){border-right:1.5px solid var(--g100)}
+    .calc-step:nth-last-child(-n+2){border-bottom:none}
+
+    .step-num{display:inline-flex;align-items:center;justify-content:center;
+      width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;
+      font-family:var(--fh);font-size:12px;font-weight:800;margin-bottom:12px}
+    .step-label{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:16px}
+
+    /* OPTION BUTTONS */
+    .opt-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+    .opt-btn{font-family:var(--fh);font-size:13px;font-weight:600;padding:8px 16px;
+      border-radius:50px;border:2px solid var(--g200);background:var(--g50);color:var(--g500);
+      cursor:pointer;transition:all .2s;white-space:nowrap}
+    .opt-btn:hover{border-color:var(--teal);color:var(--teal);background:rgba(32,201,217,.05)}
+    .opt-btn.active{background:var(--teal);border-color:var(--teal);color:#fff;
+      box-shadow:0 4px 12px rgba(32,201,217,.3)}
+
+    /* CUSTOM INPUT */
+    .custom-input-wrap{display:none;align-items:center;gap:8px;margin-top:8px}
+    .custom-input-wrap.show{display:flex}
+    .custom-input{padding:9px 14px;border-radius:10px;border:1.5px solid var(--g200);
+      font-family:var(--fb);font-size:14px;color:var(--navy);width:120px;outline:none;
+      transition:border-color .2s;background:var(--g50)}
+    .custom-input:focus{border-color:var(--teal);background:var(--white)}
+    .custom-unit-select{padding:9px 28px 9px 12px;border-radius:10px;border:1.5px solid var(--g200);
+      font-family:var(--fh);font-size:13px;font-weight:600;color:var(--g500);background:var(--g50);outline:none}
+    .custom-unit-select:focus{border-color:var(--teal);background:var(--white)}
+    .custom-unit{font-size:13px;color:var(--g400);font-family:var(--fh);font-weight:600}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* SYRINGE VISUAL */
+    .syringe-visual{padding:32px 36px;background:linear-gradient(135deg,var(--navy) 0%,var(--navy-m) 100%);
+      display:flex;flex-direction:column;align-items:center;gap:24px}
+
+    .syringe-container{position:relative;width:100%;max-width:460px}
+
+    /* SVG Syringe */
+    .syringe-svg-wrap{width:100%;display:flex;justify-content:center}
+
+    .result-box{background:rgba(32,201,217,.12);border:1.5px solid rgba(32,201,217,.3);
+      border-radius:14px;padding:20px 28px;text-align:center;width:100%;max-width:460px}
+    .result-box.warning{background:rgba(255,140,66,.1);border-color:rgba(255,140,66,.4)}
+    .result-label{font-family:var(--fh);font-size:12px;font-weight:700;letter-spacing:.14em;
+      text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+    .result-box.warning .result-label{color:var(--orange-d)}
+    .result-value{font-family:var(--fh);font-size:36px;font-weight:900;color:#fff;line-height:1.1}
+    .result-sub{font-size:13px;color:rgba(255,255,255,.55);margin-top:6px}
+
+    .result-breakdown{background:rgba(255,255,255,.05);border-radius:10px;padding:16px 20px;
+      width:100%;max-width:460px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .rb-item{text-align:center}
+    .rb-val{font-family:var(--fh);font-size:18px;font-weight:800;color:var(--teal)}
+    .rb-lbl{font-size:11px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:2px}
+
+    /* RECONSTITUTION GUIDE */
+    .guide-section{padding:40px 36px;border-top:1.5px solid var(--g100)}
+    .guide-section h3{font-family:var(--fh);font-size:20px;font-weight:800;color:var(--navy);margin-bottom:24px}
+    .guide-steps{display:flex;flex-direction:column;gap:0}
+    .guide-step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--g100);align-items:flex-start}
+    .guide-step:last-child{border-bottom:none}
+    .gs-num{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--purple));
+      color:#fff;font-family:var(--fh);font-size:14px;font-weight:800;display:flex;
+      align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+    .gs-content h4{font-family:var(--fh);font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .gs-content p{font-size:14px;color:var(--g500);line-height:1.65}
+
+    /* FOOTER */
+    .calc-footer{background:var(--navy);padding:24px 40px;display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .calc-footer p{font-size:12px;color:rgba(255,255,255,.3)}
+    .calc-footer a{color:var(--teal);font-weight:600}
+
+    @media(max-width:700px){
+      .calc-steps{grid-template-columns:1fr}
+      .calc-step:nth-child(odd){border-right:none}
+      .calc-step:nth-last-child(-n+2){border-bottom:1.5px solid var(--g100)}
+      .calc-step:last-child{border-bottom:none}
+      .calc-nav{padding:0 20px}
+      .calc-hero{padding:40px 20px}
+      .calc-wrap{padding:32px 16px 60px}
+      .guide-section{padding:32px 20px}
+      .syringe-visual{padding:28px 20px}
+    }
+
+    /* Arrow buttons */
+
+    /* Product cards */
+
+    @media(max-width:700px){
+    }
+
+  </style>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"/>
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png"/>
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon-128.png"/>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png"/>
+</head>
+
+
+<!-- NAV -->
+<nav class="calc-nav" aria-label="Calculator navigation" data-dam="DesignAdManagement.com" data-build="2026-04-06">
+  <a href="https://peptribe.us/home" class="back">← Back to PepTribe</a>
+  <span class="logo">Pep<span>Tribe</span></span>
+  <li class="nav-drop" style="list-style:none;margin-left:auto"><a href="#">Protocols ▾</a><div class="nav-drop-menu"><a href="calculator.html">🧪 Calculator</a><a href="https://app.peptribe.us/research/peptides" target="_blank" rel="noopener">📋 Protocols</a></div></li>
+  <a href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener" style="font-family:sans-serif;font-weight:700;font-size:13px;padding:7px 18px;border-radius:50px;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.85);text-decoration:none">Login</a>
+</nav>
+
+<!-- HERO -->
+<div class="calc-hero">
+  <div class="calc-hero-inner">
+    <div class="badge">✉️ CONTACT US</div>
+    <h1>We're Here To <span>Help</span></h1>
+    <p>Have a question about PepTribe, your membership, peptides, or our resources? Reach out to our team—we're happy to help and will get back to you as soon as possible.</p>
+  </div>
+</div>
