@@ -1,0 +1,516 @@
+<style>
+  .scout-section {
+    width: 100%;
+    padding: 60px 35px;
+    box-sizing: border-box;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1A2B4A;
+  }
+
+  .scout-section * {
+    box-sizing: border-box;
+  }
+
+  /* HEADER */
+
+  .scout-header {
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  .scout-header h2 {
+    margin: 0 0 10px;
+    font-size: 42px;
+    line-height: 1.08;
+    font-weight: 800;
+    color: #1A2B4A;
+    letter-spacing: -1px;
+  }
+
+  .scout-header h2 span {
+    color: #20C9D9;
+  }
+
+  .scout-header p {
+    max-width: 950px;
+    margin: 0 auto;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #6B6B6B;
+    font-weight: 400;
+  }
+
+
+  /* CARDS */
+
+  .scout-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .scout-card {
+    min-height: 510px;
+    padding: 25px 25px 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #E7EEF2;
+    border-radius: 36px;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+      0 7px 25px rgba(26, 43, 74, 0.06);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+
+  /* SOFT GLOW */
+
+  .scout-card::before {
+    content: "";
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    top: -65px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    opacity: 0.12;
+
+    filter: blur(23px);
+
+    pointer-events: none;
+  }
+
+  .scout-card:nth-child(1)::before {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(2)::before {
+    background: #6B4FBB;
+  }
+
+  .scout-card:nth-child(3)::before {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(4)::before {
+    background: #FF8C42;
+  }
+
+
+  /* HOVER */
+
+  .scout-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+      0 16px 35px rgba(26, 43, 74, 0.11);
+  }
+
+  .scout-card:nth-child(1):hover {
+    border-color: rgba(32, 201, 217, 0.45);
+  }
+
+  .scout-card:nth-child(2):hover {
+    border-color: rgba(107, 79, 187, 0.45);
+  }
+
+  .scout-card:nth-child(3):hover {
+    border-color: rgba(32, 201, 217, 0.45);
+  }
+
+  .scout-card:nth-child(4):hover {
+    border-color: rgba(255, 140, 66, 0.45);
+  }
+
+
+  /* ICON */
+
+  .scout-icon {
+    width: 125px;
+    height: 125px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
+
+    border-radius: 50%;
+  }
+
+
+  /* ICON GLOW */
+
+  .scout-icon::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 4px;
+
+    border-radius: 50%;
+
+    opacity: 0.14;
+
+    filter: blur(7px);
+
+    z-index: 0;
+  }
+
+  .scout-card:nth-child(1) .scout-icon::before {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(2) .scout-icon::before {
+    background: #6B4FBB;
+  }
+
+  .scout-card:nth-child(3) .scout-icon::before {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(4) .scout-icon::before {
+    background: #FF8C42;
+  }
+
+
+  /* LARGE ICON IMAGE */
+
+  .scout-icon img {
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+
+    display: block;
+
+    position: relative;
+    z-index: 2;
+
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+
+  .scout-card:hover .scout-icon img {
+    transform: scale(1.06);
+  }
+
+
+  /* ICON GLOW */
+
+  .scout-card:nth-child(1) .scout-icon img {
+    filter:
+      drop-shadow(0 0 7px rgba(32, 201, 217, 0.35));
+  }
+
+  .scout-card:nth-child(2) .scout-icon img {
+    filter:
+      drop-shadow(0 0 7px rgba(107, 79, 187, 0.35));
+  }
+
+  .scout-card:nth-child(3) .scout-icon img {
+    filter:
+      drop-shadow(0 0 7px rgba(32, 201, 217, 0.35));
+  }
+
+  .scout-card:nth-child(4) .scout-icon img {
+    filter:
+      drop-shadow(0 0 7px rgba(255, 140, 66, 0.35));
+  }
+
+
+  /* CARD TITLE */
+
+  .scout-card h3 {
+    margin: 0 0 8px;
+
+    font-size: 26px;
+    line-height: 1.18;
+
+    font-weight: 500;
+
+    color: #1A2B4A;
+
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* ACCENT LINE */
+
+  .scout-card h3::after {
+    content: "";
+
+    display: block;
+
+    width: 42px;
+    height: 3px;
+
+    margin: 10px auto 15px;
+
+    border-radius: 10px;
+  }
+
+  .scout-card:nth-child(1) h3::after {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(2) h3::after {
+    background: #6B4FBB;
+  }
+
+  .scout-card:nth-child(3) h3::after {
+    background: #20C9D9;
+  }
+
+  .scout-card:nth-child(4) h3::after {
+    background: #FF8C42;
+  }
+
+
+  /* CARD TEXT */
+
+  .scout-card p {
+    margin: 0;
+
+    max-width: 290px;
+
+    font-size: 15px;
+    line-height: 1.65;
+
+    font-weight: 400;
+
+    color: #1A2B4A;
+
+    position: relative;
+    z-index: 2;
+  }
+
+
+  /* TABLET */
+
+  @media (max-width: 1100px) {
+
+    .scout-section {
+      padding: 60px 25px;
+    }
+
+    .scout-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .scout-header h2 {
+      font-size: 38px;
+    }
+
+    .scout-card {
+      min-height: 490px;
+    }
+  }
+
+
+  /* MOBILE */
+
+  @media (max-width: 650px) {
+
+    .scout-section {
+      padding: 60px 18px;
+    }
+
+    .scout-header {
+      margin-bottom: 22px;
+    }
+
+    .scout-header h2 {
+      font-size: 32px;
+      line-height: 1.12;
+      letter-spacing: -0.5px;
+    }
+
+    .scout-header p {
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .scout-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .scout-card {
+      min-height: auto;
+      padding: 32px 24px 35px;
+      border-radius: 32px;
+    }
+
+    .scout-icon {
+      width: 110px;
+      height: 110px;
+    }
+
+    .scout-icon img {
+      width: 95px;
+      height: 95px;
+    }
+
+    .scout-card h3 {
+      font-size: 25px;
+    }
+
+    .scout-card p {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+  }
+</style>
+
+
+<section class="scout-section">
+
+  <!-- HEADER -->
+  <div class="scout-header">
+
+    <h2>
+      YOUR SCOUT MEMBERSHIP <span>INCLUDES:</span>
+    </h2>
+
+    <p>
+      Access trusted education, valuable resources, and a welcoming community
+      that supports you every step of the way.
+    </p>
+
+  </div>
+
+
+  <!-- CARDS -->
+  <div class="scout-grid">
+
+
+    <!-- CARD 1 -->
+    <div class="scout-card">
+
+      <div class="scout-icon">
+        <img
+          src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a7f73c9f7627452223879a9.png"
+          alt="Explore the Research"
+        >
+      </div>
+
+      <h3>
+        Explore the<br>
+        Research
+      </h3>
+
+      <p>
+        Dig into a growing knowledge base of peptide reference cards,
+        articles, and wellness information...all organized in one place
+        to make researching easier.
+      </p>
+
+    </div>
+
+
+    <!-- CARD 2 -->
+    <div class="scout-card">
+
+      <div class="scout-icon">
+        <img
+          src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a7f73c9dc6b0a15e5b7a61a.png"
+          alt="Join the Conversation"
+        >
+      </div>
+
+      <h3>
+        Join the<br>
+        Conversation
+      </h3>
+
+      <p>
+        Ask questions, join topic-specific discussions, share experiences,
+        and connect with other wellness-minded members. PepTribe's founders
+        are active in the community, too.
+      </p>
+
+    </div>
+
+
+    <!-- CARD 3 -->
+    <div class="scout-card">
+
+      <div class="scout-icon">
+        <img
+          src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a7f73c92fe70d8e15724791.png"
+          alt="Learn Live"
+        >
+      </div>
+
+      <h3>
+        Learn<br>
+        Live
+      </h3>
+
+      <p>
+        Get access to live sessions, Q&amp;As, events, and guest speakers
+        through the PepTribe member calendar.
+      </p>
+
+    </div>
+
+
+    <!-- CARD 4 -->
+    <div class="scout-card">
+
+      <div class="scout-icon">
+        <img
+          src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a7f73c98921ecbd9c3eeda4.png"
+          alt="Meet Your AI Guides"
+        >
+      </div>
+
+      <h3>
+        Meet Your AI<br>
+        Guides
+      </h3>
+
+      <p>
+        Pepe, Professor Pep, and Professor Pepper bring their own
+        personalities and perspectives to the PepTribe experience,
+        helping make exploring wellness topics and PepTribe resources
+        more engaging.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>

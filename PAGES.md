@@ -10,7 +10,7 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Terms & Conditions (Terms of Service) | Imported unchanged | terms-of-service.html |
 | About Us | All 9 code sections imported; assembly pending | about-section-01.html, about-section-02.html, about-section-03.html, about-section-04.html, about-section-05.html, about-section-06.html, about-section-07.html, about-section-08.html, about-section-09.html |
 | Contact Us | Header and shared footer received; native form skipped by user; cards not captured | contact-section-01.html, about-section-09.html |
-| Scout | Incomplete: sections 1-2 of 6 imported; section 3 next; native HighLevel checkout dependency | scout-section-01.html, scout-section-02.html |
+| Scout | Incomplete: sections 1-3 of 6 imported; section 4 next; native HighLevel checkout dependency | scout-section-01.html, scout-section-02.html, scout-section-03.html |
 | Scout Thank You | Awaiting code | |
 | Products List | Awaiting platform details/code | |
 | Product details | Awaiting platform details/code | |
