@@ -12,12 +12,12 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Contact Us | Header and shared footer received; native form skipped by user; cards not captured | contact-section-01.html, about-section-09.html |
 | Scout | All 7 code sections imported, including footer; assembly pending; native HighLevel checkout dependency | scout-section-01.html, scout-section-02.html, scout-section-03.html, scout-section-04.html, scout-section-05.html, scout-section-06.html, scout-section-07.html |
 | Scout Thank You | Imported unchanged | scout-thank-you.html |
-| Products List | Next: awaiting platform details/code | |
-| Product details | Awaiting platform details/code | |
-| Cart | Awaiting platform details/code | |
-| Checkout | Awaiting platform details/code | |
-| Thank you! | Awaiting platform details/code | |
-| Wellness Tribe | Awaiting code | |
+| Products List | Skipped: native store to be rebuilt on new platform | |
+| Product details | Skipped: native store to be rebuilt on new platform | |
+| Cart | Skipped: native store to be rebuilt on new platform | |
+| Checkout | Skipped: native store to be rebuilt on new platform | |
+| Thank you! | Skipped: native store to be rebuilt on new platform | |
+| Wellness Tribe | Incomplete: section 1 of 6 imported; section 2 next | wellness-tribe-section-01.html |
 | Sponsor Signup | Awaiting code | |
 | Get Busy Living Sponsor Si... | Awaiting full title/code | |
 | PepTribe Questionnaire | Unpublished; awaiting code | |
