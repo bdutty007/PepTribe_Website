@@ -1,0 +1,98 @@
+<!-- PepTribe Sponsor Benefits | Section 5: Sponsor Decision and Event Location -->
+<style>
+.spb-decision{--spb-navy:#1A2B4A;--spb-navy-secondary:#243760;--spb-teal:#20C9D9;--spb-purple:#6B4FBB;--spb-orange:#FF8C42;--spb-off-white:#F6F9FC;--spb-white:#FFFFFF;box-sizing:border-box;position:relative;overflow:hidden;padding:88px 24px;background:linear-gradient(145deg,var(--spb-off-white),var(--spb-white));color:var(--spb-navy);font-family:'Inter',sans-serif}
+.spb-decision,.spb-decision *{box-sizing:border-box}
+.spb-decision-inner{max-width:1200px;margin:0 auto}
+.spb-decision-header{max-width:770px;margin:0 auto 40px;text-align:center}
+.spb-decision-eyebrow,.spb-decision-location-eyebrow{margin:0 0 14px;color:var(--spb-purple);font-family:'Poppins',sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;line-height:1.35}
+.spb-decision-title,.spb-decision-location-title{margin:0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-weight:900;letter-spacing:-.045em;line-height:1.06}
+.spb-decision-title{font-size:clamp(34px,4.4vw,56px)}
+.spb-decision-intro{max-width:700px;margin:20px auto 0;color:var(--spb-navy-secondary);font-size:16px;line-height:1.7}
+.spb-decision-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.spb-decision-card{--spb-tier:#20C9D9;display:flex;min-width:0;min-height:226px;flex-direction:column;padding:25px 21px 22px;border:2px solid var(--spb-tier);border-radius:22px;background:var(--spb-white);box-shadow:0 8px 0 var(--spb-off-white)}
+.spb-decision-card--scout{--spb-tier:#72C94A}
+.spb-decision-card--pathfinder{--spb-tier:#2D8CFF}
+.spb-decision-card--firekeeper{--spb-tier:#FF8C42}
+.spb-decision-card--lorekeeper{--spb-tier:#8B5CF6}
+.spb-decision-card--chieftain{--spb-tier:#C94F5D}
+.spb-decision-card-accent{width:52px;height:5px;margin:0 0 21px;border-radius:999px;background:var(--spb-tier)}
+.spb-decision-card-name{margin:0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:13px;font-weight:800;letter-spacing:.055em;line-height:1.35}
+.spb-decision-card-price{margin:13px 0 24px;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:31px;font-weight:900;letter-spacing:-.035em;line-height:1}
+.spb-decision-card-cta{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:44px;margin-top:auto;padding:12px 13px;border:2px solid var(--spb-navy);border-radius:999px;background:var(--spb-navy);color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:10px;font-weight:800;letter-spacing:.065em;line-height:1.2;text-align:center;text-decoration:none;transition:background .2s ease,border-color .2s ease,color .2s ease,transform .2s ease}
+.spb-decision-card-cta:hover{border-color:var(--spb-tier);background:var(--spb-navy);color:var(--spb-white);transform:translateY(-1px)}
+.spb-decision-card-cta:focus-visible{outline:3px solid var(--spb-navy);outline-offset:3px}
+.spb-decision-location{display:grid;grid-template-columns:minmax(0,.78fr) minmax(420px,1.22fr);gap:34px;align-items:stretch;margin-top:70px;padding-top:54px;border-top:2px solid var(--spb-navy)}
+.spb-decision-location-copy{display:flex;flex-direction:column;justify-content:center;padding:12px 0}
+.spb-decision-location-eyebrow{color:var(--spb-navy);text-decoration:underline;text-decoration-color:var(--spb-orange);text-decoration-thickness:3px;text-underline-offset:6px}
+.spb-decision-location-title{font-size:clamp(31px,3.7vw,46px)}
+.spb-decision-location-city{margin:16px 0 0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;line-height:1.3}
+.spb-decision-location-address{margin:8px 0 0;color:var(--spb-navy-secondary);font-size:15px;font-style:normal;line-height:1.6}
+.spb-decision-map{display:flex;min-height:286px;align-items:center;justify-content:center;padding:32px;border:2px solid var(--spb-teal);border-radius:26px;background:linear-gradient(135deg,var(--spb-navy),var(--spb-navy-secondary));color:var(--spb-white);text-align:center}
+.spb-decision-map-pin{display:flex;width:52px;height:52px;align-items:center;justify-content:center;margin:0 auto 18px;border:2px solid var(--spb-white);border-radius:50%;color:var(--spb-teal);font-family:'Poppins',sans-serif;font-size:22px;font-weight:900;line-height:1}
+.spb-decision-map-title{margin:0;color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:24px;font-weight:900;letter-spacing:.04em;line-height:1.2}
+.spb-decision-map-copy{max-width:390px;margin:11px auto 0;color:var(--spb-white);font-size:14px;line-height:1.6}
+@media(min-width:1101px){.spb-decision-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}}
+@media(max-width:900px){.spb-decision{padding:72px 22px}.spb-decision-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.spb-decision-card--chieftain{grid-column:1 / -1;width:calc((100% - 18px)/2);justify-self:center}.spb-decision-location{grid-template-columns:minmax(0,.8fr) minmax(360px,1.2fr);gap:26px;margin-top:60px;padding-top:46px}}
+@media(max-width:700px){.spb-decision{padding:56px 18px}.spb-decision-header{margin-bottom:32px}.spb-decision-intro{font-size:15px}.spb-decision-grid{grid-template-columns:1fr;gap:16px}.spb-decision-card,.spb-decision-card--chieftain{grid-column:auto;width:100%;min-height:0;padding:22px 20px}.spb-decision-card-price{margin-bottom:20px}.spb-decision-location{grid-template-columns:1fr;gap:25px;margin-top:50px;padding-top:40px}.spb-decision-location-copy{text-align:center}.spb-decision-map{min-height:245px;padding:26px 20px}}
+@media(max-width:390px){.spb-decision-title{font-size:32px}.spb-decision-card{padding:20px 17px}.spb-decision-card-price{font-size:29px}.spb-decision-card-cta{font-size:10px}.spb-decision-location-title{font-size:30px}.spb-decision-location-city{font-size:18px}.spb-decision-map{min-height:230px;padding-right:16px;padding-left:16px}.spb-decision-map-title{font-size:21px}}
+</style>
+
+<section id="sponsor-levels" class="spb-decision" aria-labelledby="spb-decision-title">
+  <div class="spb-decision-inner">
+    <header class="spb-decision-header">
+      <p class="spb-decision-eyebrow">READY TO JOIN THE EXPERIENCE?</p>
+      <h2 class="spb-decision-title" id="spb-decision-title">SELECT YOUR SPONSOR LEVEL</h2>
+      <p class="spb-decision-intro">Choose the one-time event sponsorship package that matches the visibility and event benefits you want.</p>
+    </header>
+
+    <div class="spb-decision-grid">
+      <article class="spb-decision-card spb-decision-card--scout">
+        <span class="spb-decision-card-accent" aria-hidden="true"></span>
+        <h3 class="spb-decision-card-name">SCOUT SPONSOR</h3>
+        <p class="spb-decision-card-price">$100</p>
+        <a class="spb-decision-card-cta" href="https://peptribe.us/scout-sponsor-checkout">CHOOSE SCOUT</a>
+      </article>
+      <article class="spb-decision-card spb-decision-card--pathfinder">
+        <span class="spb-decision-card-accent" aria-hidden="true"></span>
+        <h3 class="spb-decision-card-name">PATHFINDER SPONSOR</h3>
+        <p class="spb-decision-card-price">$250</p>
+        <a class="spb-decision-card-cta" href="https://peptribe.us/pathfinder-sponsor-4918">CHOOSE PATHFINDER</a>
+      </article>
+      <article class="spb-decision-card spb-decision-card--firekeeper">
+        <span class="spb-decision-card-accent" aria-hidden="true"></span>
+        <h3 class="spb-decision-card-name">FIREKEEPER SPONSOR</h3>
+        <p class="spb-decision-card-price">$500</p>
+        <a class="spb-decision-card-cta" href="https://peptribe.us/firekeeper-sponsor-6332">CHOOSE FIREKEEPER</a>
+      </article>
+      <article class="spb-decision-card spb-decision-card--lorekeeper">
+        <span class="spb-decision-card-accent" aria-hidden="true"></span>
+        <h3 class="spb-decision-card-name">LOREKEEPER SPONSOR</h3>
+        <p class="spb-decision-card-price">$1,000</p>
+        <a class="spb-decision-card-cta" href="https://peptribe.us/firekeeper-sponsor-6332">CHOOSE LOREKEEPER</a>
+      </article>
+      <article class="spb-decision-card spb-decision-card--chieftain">
+        <span class="spb-decision-card-accent" aria-hidden="true"></span>
+        <h3 class="spb-decision-card-name">CHIEFTAIN SPONSOR</h3>
+        <p class="spb-decision-card-price">$2,500</p>
+        <a class="spb-decision-card-cta" href="https://peptribe.us/chieftain-sponsor-2427">CHOOSE CHIEFTAIN</a>
+      </article>
+    </div>
+
+    <div class="spb-decision-location">
+      <div class="spb-decision-location-copy">
+        <p class="spb-decision-location-eyebrow">EVENT LOCATION</p>
+        <h2 class="spb-decision-location-title">OCTOBER 10, 2026</h2>
+        <p class="spb-decision-location-city">Austin, Texas</p>
+        <address class="spb-decision-location-address">Venue address coming soon</address>
+      </div>
+      <!-- Replace this styled map placeholder with the confirmed Google Maps embed after the exact venue address is available. -->
+      <div class="spb-decision-map" aria-label="Austin, Texas event location placeholder">
+        <div class="spb-decision-map-content">
+          <span class="spb-decision-map-pin" aria-hidden="true">A</span>
+          <p class="spb-decision-map-title">AUSTIN, TEXAS</p>
+          <p class="spb-decision-map-copy">Exact location will be added when confirmed.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
