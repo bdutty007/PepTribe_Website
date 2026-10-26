@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PepTribe</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+>
+
+<style>
+
+/* ==========================================
+   PEPTRIBE VARIABLES
+========================================== */
+
+:root{
+    --teal:#20C9D9;
+    --purple:#6B4FBB;
+    --orange:#FF8C42;
+    --navy:#1A2B4A;
+    --navy-light:#243760;
+    --gray:#64748B;
+    --off:#F6F9FC;
+    --white:#FFFFFF;
+
+    --fh:'Poppins',sans-serif;
+    --fb:'Inter',sans-serif;
+}
+
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:var(--off);
+    color:var(--navy);
+    font-family:var(--fb);
+    overflow-x:hidden;
+}
+
+
+/* ==========================================
+   SECTION
+========================================== */
+
+.pep-join-section{
+    width:100%;
+    padding:80px 20px;
+    background:#F6F9FC;
+    overflow:hidden;
+}
+
+
+/* ==========================================
+   CARD
+========================================== */
+
+.pep-join-card{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:52px 50px 44px;
+    background:#FFFFFF;
+    border:1px solid rgba(26,43,74,.08);
+    border-radius:24px;
+
+    box-shadow:
+        0 8px 28px rgba(26,43,74,.12),
+        0 2px 8px rgba(26,43,74,.06);
+
+    text-align:center;
+    overflow:hidden;
+}
+
+
+/* ==========================================
+   EYEBROW
+========================================== */
+
+.pep-join-eyebrow{
+    display:inline-block;
+    margin-bottom:16px;
+    color:var(--teal);
+    font-family:var(--fh);
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.18em;
+    line-height:1.3;
+    text-transform:uppercase;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.pep-join-heading h2{
+    margin:0;
+    padding:0;
+    color:var(--navy);
+    font-family:var(--fh);
+    font-size:clamp(42px,5vw,64px);
+    font-weight:900;
+    line-height:1.08;
+    letter-spacing:-.035em;
+}
+
+
+/* ==========================================
+   BODY COPY
+========================================== */
+
+.pep-join-heading p{
+    max-width:850px;
+    margin:8px auto 0;
+    color:var(--gray);
+    font-family:var(--fb);
+    font-size:16px;
+    font-weight:400;
+    line-height:1.7;
+}
+
+
+/* ==========================================
+   SCIENCE / COMMUNITY / CLARITY
+========================================== */
+
+.pep-join-tagline{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:32px;
+    font-family:var(--fh);
+    font-size:25px;
+    font-weight:800;
+    line-height:1.35;
+}
+
+
+/* Science */
+
+.pep-science{
+    color:#20C9D9;
+
+    text-shadow:
+        0 0 5px rgba(32,201,217,.55),
+        0 0 12px rgba(32,201,217,.35),
+        0 0 24px rgba(32,201,217,.18);
+}
+
+
+/* Community */
+
+.pep-community{
+    color:#6B4FBB;
+
+    text-shadow:
+        0 0 5px rgba(107,79,187,.55),
+        0 0 12px rgba(107,79,187,.35),
+        0 0 24px rgba(107,79,187,.18);
+}
+
+
+/* Clarity */
+
+.pep-clarity{
+    color:#FF8C42;
+
+    text-shadow:
+        0 0 5px rgba(255,140,66,.55),
+        0 0 12px rgba(255,140,66,.35),
+        0 0 24px rgba(255,140,66,.18);
+}
+
+
+/* ==========================================
+   MEMBERSHIP
+========================================== */
+
+.pep-membership{
+    margin-top:30px;
+}
+
+
+.pep-membership-name{
+    color:var(--navy);
+    font-family:var(--fh);
+    font-size:27px;
+    font-weight:800;
+    line-height:1.25;
+    margin-bottom:5px;
+}
+
+
+.pep-membership-type{
+    color:var(--gray);
+    font-family:var(--fb);
+    font-size:16px;
+    font-weight:400;
+    line-height:1.5;
+    margin-bottom:4px;
+}
+
+
+.pep-membership-price{
+    color:var(--navy);
+    font-family:var(--fh);
+    font-size:29px;
+    font-weight:800;
+    line-height:1.25;
+}
+
+
+.pep-membership-price span{
+    color:var(--gray);
+    font-family:var(--fb);
+    font-size:17px;
+    font-weight:400;
+}
+
+
+/* ==========================================
+   WALKING BANNER
+   END TO END INSIDE CARD
+========================================== */
+
+.pep-feature-banner{
+    width:calc(100% + 100px);
+    margin-left:-50px;
+    margin-right:-50px;
+    margin-top:25px;
+    margin-bottom:27px;
+    padding:0;
+    overflow:hidden;
+    background:transparent;
+    position:relative;
+}
+
+
+.pep-feature-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    animation:pepFeatureWalk 28s linear infinite;
+    will-change:transform;
+}
+
+
+.pep-feature-group{
+    display:flex;
+    align-items:center;
+    flex-shrink:0;
+    white-space:nowrap;
+    color:var(--navy);
+    font-family:var(--fb);
+    font-size:16px;
+    font-weight:500;
+    line-height:1.6;
+}
+
+
+.pep-feature-group span{
+    padding:0 15px;
+}
+
+
+.pep-feature-group b{
+    color:var(--teal);
+    font-family:var(--fh);
+    font-size:19px;
+    font-weight:800;
+}
+
+
+/* ==========================================
+   WALKING ANIMATION
+========================================== */
+
+@keyframes pepFeatureWalk{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-66.666%);
+    }
+
+}
+
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.pep-join-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:250px;
+    padding:15px 34px;
+    border-radius:50px;
+    background:var(--teal);
+    color:#FFFFFF;
+    font-family:var(--fh);
+    font-size:14px;
+    font-weight:700;
+    line-height:1.3;
+    text-decoration:none;
+
+    box-shadow:
+        0 6px 18px rgba(32,201,217,.25);
+
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+
+.pep-join-button:hover{
+    background:#17A8B6;
+    color:#FFFFFF;
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 10px 24px rgba(32,201,217,.32);
+}
+
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(max-width:800px){
+
+    .pep-join-section{
+        padding:65px 15px;
+    }
+
+    .pep-join-card{
+        padding:45px 25px 40px;
+        border-radius:22px;
+    }
+
+    .pep-join-heading h2{
+        font-size:clamp(38px,7vw,52px);
+    }
+
+    .pep-join-heading p{
+        font-size:15px;
+    }
+
+    .pep-join-tagline{
+        margin-top:29px;
+        font-size:23px;
+    }
+
+    .pep-membership{
+        margin-top:28px;
+    }
+
+    .pep-feature-banner{
+        width:calc(100% + 50px);
+        margin-left:-25px;
+        margin-right:-25px;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:600px){
+
+    .pep-join-section{
+        padding:45px 12px;
+    }
+
+    .pep-join-card{
+        padding:38px 18px 34px;
+        border-radius:20px;
+    }
+
+
+    .pep-join-eyebrow{
+        font-size:11px;
+        letter-spacing:.16em;
+        margin-bottom:14px;
+    }
+
+
+    .pep-join-heading h2{
+        font-size:34px;
+        line-height:1.08;
+        letter-spacing:-.03em;
+    }
+
+
+    .pep-join-heading p{
+        margin-top:8px;
+        font-size:15px;
+        line-height:1.65;
+    }
+
+
+    .pep-join-heading p br{
+        display:none;
+    }
+
+
+    .pep-join-tagline{
+        margin-top:27px;
+        font-size:20px;
+        gap:6px;
+    }
+
+
+    .pep-membership{
+        margin-top:27px;
+    }
+
+
+    .pep-membership-name{
+        font-size:23px;
+    }
+
+
+    .pep-membership-type{
+        font-size:15px;
+    }
+
+
+    .pep-membership-price{
+        font-size:25px;
+    }
+
+
+    .pep-membership-price span{
+        font-size:16px;
+    }
+
+
+    .pep-feature-banner{
+        width:calc(100% + 36px);
+        margin-left:-18px;
+        margin-right:-18px;
+        margin-top:22px;
+        margin-bottom:24px;
+    }
+
+
+    .pep-feature-group{
+        font-size:14px;
+    }
+
+
+    .pep-feature-group span{
+        padding:0 10px;
+    }
+
+
+    .pep-feature-group b{
+        font-size:17px;
+    }
+
+
+    .pep-join-button{
+        width:100%;
+        min-width:0;
+        padding:15px 25px;
+        font-size:14px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media(max-width:380px){
+
+    .pep-join-card{
+        padding-left:15px;
+        padding-right:15px;
+    }
+
+
+    .pep-join-heading h2{
+        font-size:31px;
+    }
+
+
+    .pep-join-tagline{
+        font-size:18px;
+    }
+
+
+    .pep-membership-name{
+        font-size:21px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- ==========================================
+     PEPTRIBE JOIN THE TRIBE
+========================================== -->
+
+<section class="pep-join-section">
+
+    <div class="pep-join-card">
+
+
+        <!-- TOP -->
+
+        <div class="pep-join-eyebrow">
+            BECOME A SCOUT!
+        </div>
+
+
+        <!-- TITLE -->
+
+        <div class="pep-join-heading">
+
+            <h2>
+                READY TO JOIN THE TRIBE?
+            </h2>
+
+
+            <p>
+                Stop bouncing between endless searches, scattered posts, and conflicting conversations.
+                <br>
+                Come explore peptides and wellness in a place built around learning, connection, and clarity.
+            </p>
+
+        </div>
+
+
+        <!-- TAGLINE -->
+
+        <div class="pep-join-tagline">
+
+            <span class="pep-science">
+                Science.
+            </span>
+
+            <span class="pep-community">
+                Community.
+            </span>
+
+            <span class="pep-clarity">
+                Clarity.
+            </span>
+
+        </div>
+
+
+        <!-- MEMBERSHIP -->
+
+        <div class="pep-membership">
+
+            <div class="pep-membership-name">
+                Scout Membership
+            </div>
+
+            <div class="pep-membership-type">
+                Annual Membership
+            </div>
+
+            <div class="pep-membership-price">
+                $19.99 <span>/ year</span>
+            </div>
+
+        </div>
+
+
+        <!-- WALKING BANNER -->
+
+        <div class="pep-feature-banner">
+
+            <div class="pep-feature-track">
+
+
+                <div class="pep-feature-group">
+
+                    <span>Research Library</span>
+
+                    <b>•</b>
+
+                    <span>Community Access</span>
+
+                    <b>•</b>
+
+                    <span>Live Learning</span>
+
+                    <b>•</b>
+
+                    <span>Ongoing Education</span>
+
+                    <b>•</b>
+
+                    <span>AI Guides</span>
+
+                    <b>•</b>
+
+                </div>
+
+
+                <div class="pep-feature-group">
+
+                    <span>Research Library</span>
+
+                    <b>•</b>
+
+                    <span>Community Access</span>
+
+                    <b>•</b>
+
+                    <span>Live Learning</span>
+
+                    <b>•</b>
+
+                    <span>Ongoing Education</span>
+
+                    <b>•</b>
+
+                    <span>AI Guides</span>
+
+                    <b>•</b>
+
+                </div>
+
+
+                <div class="pep-feature-group">
+
+                    <span>Research Library</span>
+
+                    <b>•</b>
+
+                    <span>Community Access</span>
+
+                    <b>•</b>
+
+                    <span>Live Learning</span>
+
+                    <b>•</b>
+
+                    <span>Ongoing Education</span>
+
+                    <b>•</b>
+
+                    <span>AI Guides</span>
+
+                    <b>•</b>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <a
+            href="#one-step-order-cTmWcvHCpH"
+            class="pep-join-button"
+        >
+            JOIN SCOUT
+        </a>
+
+
+    </div>
+
+</section>
+
+
+</body>
+</html>
