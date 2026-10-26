@@ -8,7 +8,7 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Calculator | Imported unchanged | calculator.html |
 | Privacy Policy | Imported unchanged | privacy-policy.html |
 | Terms & Conditions (Terms of Service) | Imported unchanged | terms-of-service.html |
-| About Us | Incomplete: sections 1-3 of 9 imported; section 4 next | about-section-01.html, about-section-02.html, about-section-03.html |
+| About Us | Incomplete: sections 1-4 of 9 imported; section 5 next | about-section-01.html, about-section-02.html, about-section-03.html, about-section-04.html |
 | Contact Us | Awaiting code | |
 | Scout | Awaiting code | |
 | Scout Thank You | Awaiting code | |

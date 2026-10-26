@@ -1,0 +1,482 @@
+<section class="beliefs-journey-section">
+
+    <div class="beliefs-journey-container">
+
+        <!-- Header -->
+        <div class="beliefs-journey-header">
+            <span class="beliefs-eyebrow">WHAT WE BELIEVE</span>
+            <h2>The Principles That Guide Everything We Do</h2>
+        </div>
+
+
+        <!-- Timeline -->
+        <div class="beliefs-timeline">
+
+
+            <!-- Community -->
+            <div class="belief-item">
+
+                <div class="belief-marker">
+                    <span>01</span>
+                </div>
+
+                <div class="belief-content">
+                    <h3>Community</h3>
+                    <p>
+                        Great health journeys aren't meant to be traveled alone. 
+                        We believe learning, encouragement, and accountability 
+                        flourish when people support one another.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Relationships -->
+            <div class="belief-item">
+
+                <div class="belief-marker">
+                    <span>02</span>
+                </div>
+
+                <div class="belief-content">
+                    <h3>Relationships</h3>
+                    <p>
+                        Meaningful connections create lasting change. We foster 
+                        genuine conversations built on trust, respect, and shared growth.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Truth -->
+            <div class="belief-item">
+
+                <div class="belief-marker">
+                    <span>03</span>
+                </div>
+
+                <div class="belief-content">
+                    <h3>Truth</h3>
+                    <p>
+                        Facts matter. We encourage open discussions grounded in 
+                        transparency, critical thinking, and intellectual honesty.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Science -->
+            <div class="belief-item">
+
+                <div class="belief-marker">
+                    <span>04</span>
+                </div>
+
+                <div class="belief-content">
+                    <h3>Science</h3>
+                    <p>
+                        Research evolves, and so do we. Our commitment is to explore 
+                        evidence thoughtfully, always seeking understanding over assumptions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Results -->
+            <div class="belief-item">
+
+                <div class="belief-marker">
+                    <span>05</span>
+                </div>
+
+                <div class="belief-content">
+                    <h3>Results</h3>
+                    <p>
+                        Knowledge should lead to action. We strive to help members 
+                        apply what they learn to improve their health, confidence, 
+                        and overall quality of life.
+                    </p>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+
+
+/* SECTION */
+
+.beliefs-journey-section {
+
+    --teal:#20C9D9;
+    --navy:#1A2B4A;
+    --gray:#64748B;
+
+    background:#F6F9FC;
+
+    padding:110px 20px;
+
+    font-family:'Inter', sans-serif;
+
+}
+
+
+
+.beliefs-journey-container {
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+
+
+/* HEADER */
+
+.beliefs-journey-header {
+
+    text-align:center;
+
+    max-width:800px;
+
+    margin:0 auto 80px;
+
+}
+
+
+
+.beliefs-eyebrow {
+
+    display:inline-block;
+
+    font-family:'Poppins', sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.18em;
+
+    text-transform:uppercase;
+
+    color:#20C9D9;
+
+    margin-bottom:18px;
+
+}
+
+
+
+.beliefs-journey-header h2 {
+
+    font-family:'Poppins', sans-serif;
+
+    font-size:clamp(32px,4vw,44px);
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    color:#1A2B4A;
+
+    margin:0;
+
+}
+
+
+
+/* TIMELINE */
+
+.beliefs-timeline {
+
+    position:relative;
+
+    padding:20px 0;
+
+}
+
+
+
+/* Main line */
+
+.beliefs-timeline::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:7px;
+
+    bottom:7px;
+
+    left:50%;
+
+    width:2px;
+
+    background:#20C9D9;
+
+    transform:translateX(-50%);
+
+}
+
+
+
+/* End circles */
+
+.beliefs-timeline::after {
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#20C9D9;
+
+    transform:translateX(-50%);
+
+    box-shadow:0 calc(100% - 28px) 0 #20C9D9;
+
+}
+
+
+
+/* ITEMS */
+
+.belief-item {
+
+    position:relative;
+
+    display:flex;
+
+    width:100%;
+
+    margin-bottom:70px;
+
+}
+
+
+
+.belief-item:last-child {
+
+    margin-bottom:0;
+
+}
+
+
+
+.belief-item:nth-child(odd) {
+
+    justify-content:flex-start;
+
+}
+
+
+
+.belief-item:nth-child(even) {
+
+    justify-content:flex-end;
+
+}
+
+
+
+/* NUMBER CIRCLE */
+
+.belief-marker {
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    background:#1A2B4A;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:2;
+
+    font-family:'Poppins', sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    box-shadow:0 8px 20px rgba(26,43,74,.2);
+
+}
+
+
+
+/* CONTENT */
+
+.belief-content {
+
+    width:43%;
+
+    background:white;
+
+    padding:36px;
+
+    border-radius:16px;
+
+    box-shadow:0 6px 28px rgba(26,43,74,.12);
+
+    transition:.3s ease;
+
+}
+
+
+
+.belief-content:hover {
+
+    transform:translateY(-5px);
+
+}
+
+
+
+.belief-content h3 {
+
+    font-family:'Poppins', sans-serif;
+
+    font-size:26px;
+
+    font-weight:700;
+
+    color:#1A2B4A;
+
+    margin:0 0 14px;
+
+}
+
+
+
+.belief-content p {
+
+    font-family:'Inter', sans-serif;
+
+    font-size:16px;
+
+    line-height:1.7;
+
+    color:#64748B;
+
+    margin:0;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+
+    .beliefs-journey-section {
+
+        padding:80px 20px;
+
+    }
+
+
+    .beliefs-timeline::before {
+
+        left:32px;
+
+    }
+
+
+    .beliefs-timeline::after {
+
+        left:32px;
+
+    }
+
+
+    .belief-item,
+    .belief-item:nth-child(odd),
+    .belief-item:nth-child(even){
+
+        justify-content:flex-start;
+
+        padding-left:80px;
+
+    }
+
+
+    .belief-marker {
+
+        left:32px;
+
+    }
+
+
+    .belief-content {
+
+        width:100%;
+
+        padding:30px;
+
+    }
+
+}
+
+
+
+@media(max-width:500px){
+
+
+    .belief-content h3 {
+
+        font-size:22px;
+
+    }
+
+
+    .belief-content p {
+
+        font-size:15px;
+
+    }
+
+}
+
+</style>
