@@ -1,0 +1,314 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* PepTribe Body Atlas Design System — Cosmic Neon Theme */
+/* All colors stored as raw HSL channel values for Tailwind integration */
+
+@layer base {
+  :root {
+    --background: 220 25% 5%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 80% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 340 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 270 70% 60%;
+
+    --radius: 0.75rem;
+
+    /* System-specific accent colors */
+    --system-purple: 270 70% 60%;
+    --system-pink: 330 80% 58%;
+    --system-cyan: 190 85% 53%;
+    --system-orange: 25 95% 55%;
+    --system-blue: 215 85% 55%;
+    --system-green: 145 70% 45%;
+    --system-red: 0 78% 55%;
+
+    /* Glow effects */
+    --glow-purple: 270 70% 60%;
+    --glow-cyan: 190 85% 53%;
+    --glow-pink: 330 80% 58%;
+
+    --sidebar-background: 220 25% 5%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 5%;
+    --foreground: 210 40% 98%;
+    --card: 220 20% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 270 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 80% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 340 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  @font-face {
+    font-family: "PepTribe";
+    src: url("https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a8dffdb3c7881dfcf88e807.woff2")
+      format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Custom scrollbar for cosmic theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(220 25% 5%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(220 15% 25%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(270 70% 45%);
+  }
+}
+
+@layer utilities {
+  .text-glow-purple {
+    text-shadow:
+      0 0 20px hsl(var(--glow-purple) / 0.5),
+      0 0 40px hsl(var(--glow-purple) / 0.3);
+  }
+
+  .text-glow-cyan {
+    text-shadow:
+      0 0 20px hsl(var(--glow-cyan) / 0.5),
+      0 0 40px hsl(var(--glow-cyan) / 0.3);
+  }
+
+  .box-glow-purple {
+    box-shadow:
+      0 0 30px hsl(var(--glow-purple) / 0.3),
+      inset 0 0 30px hsl(var(--glow-purple) / 0.05);
+  }
+
+  .box-glow-cyan {
+    box-shadow:
+      0 0 30px hsl(var(--glow-cyan) / 0.3),
+      inset 0 0 30px hsl(var(--glow-cyan) / 0.05);
+  }
+
+  .box-glow-pink {
+    box-shadow:
+      0 0 30px hsl(var(--glow-pink) / 0.3),
+      inset 0 0 30px hsl(var(--glow-pink) / 0.05);
+  }
+
+  .bg-starry {
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, white 50%, transparent),
+      radial-gradient(
+        2px 2px at 40px 70px,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent
+      ),
+      radial-gradient(1px 1px at 90px 40px, white 50%, transparent),
+      radial-gradient(
+        1px 1px at 130px 80px,
+        rgba(255, 255, 255, 0.6) 50%,
+        transparent
+      ),
+      radial-gradient(2px 2px at 160px 30px, white 50%, transparent),
+      radial-gradient(
+        1px 1px at 200px 60px,
+        rgba(255, 255, 255, 0.7) 50%,
+        transparent
+      ),
+      radial-gradient(1px 1px at 250px 90px, white 50%, transparent),
+      radial-gradient(
+        2px 2px at 300px 50px,
+        rgba(255, 255, 255, 0.8) 50%,
+        transparent
+      );
+    background-size: 350px 120px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+
+  @keyframes twinkle {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.6;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Official Body Atlas Single-Element Marker Style */
+  .atlas-marker {
+    background: rgba(7, 10, 22, 0.94);
+    border: 2px solid var(--marker-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow:
+      0 0 8px var(--marker-color),
+      0 0 16px color-mix(in srgb, var(--marker-color) 45%, transparent),
+      inset 0 0 8px rgba(255, 255, 255, 0.05);
+  }
+
+  .atlas-marker:hover {
+    box-shadow:
+      0 0 12px var(--marker-color),
+      0 0 24px color-mix(in srgb, var(--marker-color) 60%, transparent),
+      inset 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .atlas-marker-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────── */
+/*  P4 — Mobile animation / backdrop performance optimizations              */
+/*  These only reduce motion and GPU-expensive backdrop filters on small    */
+/*  screens or when the user prefers reduced motion. Desktop visuals and   */
+/*  colors are unchanged.                                                   */
+/* ─────────────────────────────────────────────────────────────────────── */
+
+/* Respect the user's OS-level reduced-motion preference across the app. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .bg-starry,
+  .animate-pulse-glow,
+  .animate-float,
+  .animate-pulse {
+    animation: none !important;
+  }
+}
+
+/* On small screens, backdrop-filter is GPU-expensive and stacks poorly.
+   Replace translucent backdrop-blur panels with a solid translucent fill
+   that preserves the dark cosmic look without the blur cost. Only applies
+   at <= 768px; desktop keeps its glassmorphism. */
+@media (max-width: 768px) {
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+  /* Pause the always-on decorative starfield twinkle on mobile to save the
+     compositor from running a full-screen infinite animation. */
+  .bg-starry {
+    animation: none !important;
+    opacity: 0.4;
+  }
+  /* Pause the body-figure ambient pulse glow on mobile. */
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}

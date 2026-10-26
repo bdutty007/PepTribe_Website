@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PepTribe Body Atlas — Explore Your Body's Peptide Signals</title>
+    <meta
+      name="description"
+      content="The PepTribe Body Atlas is an interactive visual guide to peptide science designed to show how signals connect across the human body. "
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a8706a5ad59e6cfedda122d.png"
+    />
+    <meta
+      property="og:title"
+      content="PepTribe Body Atlas — Explore Your Body's Peptide Signals"
+    />
+    <meta
+      property="og:description"
+      content="The PepTribe Body Atlas is an interactive visual guide to peptide science designed to show how signals connect across the human body. "
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://vibe.filesafe.space/meta/1787757240011572474/og_image.png"
+    />
+    <meta property="og:url" content="https://atlas.peptribe.us/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="PepTribe Body Atlas — Explore Your Body's Peptide Signals"
+    />
+    <meta
+      name="twitter:description"
+      content="The PepTribe Body Atlas is an interactive visual guide to peptide science designed to show how signals connect across the human body. "
+    />
+    <meta
+      name="twitter:image"
+      content="https://vibe.filesafe.space/meta/1787757240011572474/og_image.png"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="canonical" href="https://atlas.peptribe.us/" />
+    <meta
+      name="google-site-verification"
+      content="koPoOipt36QA_pv7upZ0I3yPG9T0c9Bcz6Y6LwoLTtc"
+    />
+
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <!--  PepTribe initial-load brand screen (Fix #1 + #2)                -->
+    <!--  Pure HTML/CSS only — no external fonts/scripts/images.          -->
+    <!--  React replaces #root's children on mount, removing the loader.  -->
+    <!-- ─────────────────────────────────────────────────────────────── -->
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: hsl(220 25% 5%);
+      }
+      #peptribe-loader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 24px;
+        text-align: center;
+        background: hsl(220 25% 5%);
+        color: hsl(210 40% 98%);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+      }
+      #peptribe-loader .pt-mark {
+        width: 60px;
+        height: 60px;
+      }
+      #peptribe-loader .pt-title {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+        background: linear-gradient(90deg, #22d3ee, #a855f7, #ec4899);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      #peptribe-loader .pt-sub {
+        font-size: 13px;
+        opacity: 0.6;
+      }
+      #peptribe-loader .pt-spinner {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.12);
+        border-top-color: #22d3ee;
+        animation: pt-spin 0.9s linear infinite;
+      }
+      @keyframes pt-spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #peptribe-loader .pt-spinner {
+          animation: none;
+          border-top-color: rgba(255, 255, 255, 0.45);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div id="peptribe-loader" role="status" aria-live="polite">
+        <svg
+          class="pt-mark"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <defs>
+            <linearGradient
+              id="ptg"
+              x1="0"
+              y1="0"
+              x2="64"
+              y2="64"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#22d3ee" />
+              <stop offset="0.5" stop-color="#a855f7" />
+              <stop offset="1" stop-color="#ec4899" />
+            </linearGradient>
+          </defs>
+          <circle cx="32" cy="32" r="9" fill="url(#ptg)" />
+          <ellipse
+            cx="32"
+            cy="32"
+            rx="27"
+            ry="11"
+            stroke="url(#ptg)"
+            stroke-width="2.5"
+            transform="rotate(28 32 32)"
+          />
+          <circle cx="55" cy="21" r="3.5" fill="#22d3ee" />
+        </svg>
+        <div class="pt-title">PepTribe Body Atlas</div>
+        <div class="pt-sub">Loading your interactive experience…</div>
+        <div class="pt-spinner" aria-hidden="true"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Safety net: if the app never mounts (e.g. a hard JS failure), swap the
+      // loader for a refresh prompt instead of leaving it indefinitely.
+      setTimeout(function () {
+        var l = document.getElementById("peptribe-loader");
+        if (l) {
+          l.innerHTML =
+            '<div class="pt-title">PepTribe Body Atlas</div>' +
+            '<div class="pt-sub">Something went wrong loading the Atlas. Please refresh the page.</div>';
+        }
+      }, 30000);
+    </script>
+  </body>
+</html>
