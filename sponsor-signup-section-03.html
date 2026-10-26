@@ -1,0 +1,285 @@
+<!-- PepTribe Sponsor Benefits | Section 4: Full Benefits Comparison -->
+<style>
+.spb-comparison{--spb-navy:#1A2B4A;--spb-navy-secondary:#243760;--spb-teal:#20C9D9;--spb-purple:#6B4FBB;--spb-orange:#FF8C42;--spb-off-white:#F6F9FC;--spb-white:#FFFFFF;box-sizing:border-box;padding:88px 24px;background:var(--spb-off-white);color:var(--spb-navy);font-family:'Inter',sans-serif}
+.spb-comparison,.spb-comparison *{box-sizing:border-box}
+.spb-comparison-inner{max-width:1200px;margin:0 auto}
+.spb-comparison-header{max-width:800px;margin:0 auto 42px;text-align:center}
+.spb-comparison-eyebrow{display:inline-block;margin:0 0 15px;color:var(--spb-purple);font-family:'Poppins',sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;line-height:1.35}
+.spb-comparison-title{margin:0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:clamp(34px,4.4vw,56px);font-weight:900;letter-spacing:-.045em;line-height:1.06}
+.spb-comparison-intro{max-width:720px;margin:20px auto 0;color:var(--spb-navy-secondary);font-size:16px;line-height:1.7}
+.spb-comparison-table-wrap{width:100%;border:1px solid var(--spb-navy-secondary);border-radius:22px;background:var(--spb-white);overflow:hidden}
+.spb-comparison-table{width:100%;border-collapse:collapse;table-layout:fixed;color:var(--spb-navy)}
+.spb-comparison-caption{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.spb-comparison-table th,.spb-comparison-table td{overflow-wrap:anywhere}
+.spb-comparison-table thead th{padding:17px 9px 15px;border-right:1px solid var(--spb-navy-secondary);border-bottom:1px solid var(--spb-navy-secondary);background:var(--spb-navy);color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:12px;font-weight:800;line-height:1.3;text-align:center;vertical-align:bottom}
+.spb-comparison-table thead th:first-child{width:29%;padding-left:18px;text-align:left}
+.spb-comparison-table thead th:not(:first-child){width:14.2%}
+.spb-comparison-table thead th:last-child{border-right:0}
+.spb-comparison-tier-head{border-top:5px solid var(--spb-tier)}
+.spb-comparison-tier-head--scout{--spb-tier:#72C94A}
+.spb-comparison-tier-head--pathfinder{--spb-tier:#2D8CFF}
+.spb-comparison-tier-head--firekeeper{--spb-tier:#FF8C42}
+.spb-comparison-tier-head--lorekeeper{--spb-tier:#8B5CF6}
+.spb-comparison-tier-head--chieftain{--spb-tier:#C94F5D}
+.spb-comparison-category th{padding:12px 18px;background:var(--spb-navy-secondary);color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:11px;font-weight:800;letter-spacing:.09em;line-height:1.35;text-align:left}
+.spb-comparison-benefit-row th,.spb-comparison-benefit-row td{padding:14px 10px;border-right:1px solid var(--spb-off-white);border-bottom:1px solid var(--spb-off-white);background:var(--spb-white);font-size:12px;line-height:1.45;vertical-align:middle}
+.spb-comparison-benefit-row th{padding-left:18px;color:var(--spb-navy);font-weight:700;text-align:left}
+.spb-comparison-benefit-row td{color:var(--spb-navy-secondary);font-weight:600;text-align:center}
+.spb-comparison-benefit-row td:last-child{border-right:0}
+.spb-comparison-table tbody:last-child .spb-comparison-benefit-row:last-child th,.spb-comparison-table tbody:last-child .spb-comparison-benefit-row:last-child td{border-bottom:0}
+.spb-comparison-mobile{display:none}
+.spb-comparison-card{--spb-tier:#20C9D9;min-width:0;border:1px solid var(--spb-tier);border-top-width:5px;border-radius:22px;background:var(--spb-white);overflow:hidden}
+.spb-comparison-card--scout{--spb-tier:#72C94A}
+.spb-comparison-card--pathfinder{--spb-tier:#2D8CFF}
+.spb-comparison-card--firekeeper{--spb-tier:#FF8C42}
+.spb-comparison-card--lorekeeper{--spb-tier:#8B5CF6}
+.spb-comparison-card--chieftain{--spb-tier:#C94F5D}
+.spb-comparison-card-header{display:flex;align-items:end;justify-content:space-between;gap:18px;padding:22px;background:var(--spb-off-white)}
+.spb-comparison-card-tier{margin:0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:22px;font-weight:900;line-height:1.15}
+.spb-comparison-card-price{flex:0 0 auto;margin:0;color:var(--spb-navy);font-family:'Poppins',sans-serif;font-size:21px;font-weight:800;line-height:1.15}
+.spb-comparison-card-category{margin:0;padding:12px 20px;background:var(--spb-navy-secondary);color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:10px;font-weight:800;letter-spacing:.09em;line-height:1.35}
+.spb-comparison-list{margin:0}
+.spb-comparison-pair{display:grid;grid-template-columns:minmax(0,43%) minmax(0,57%);border-bottom:1px solid var(--spb-off-white)}
+.spb-comparison-pair:last-child{border-bottom:0}
+.spb-comparison-pair dt,.spb-comparison-pair dd{min-width:0;margin:0;padding:13px 18px;overflow-wrap:anywhere;font-size:13px;line-height:1.5}
+.spb-comparison-pair dt{color:var(--spb-navy);font-weight:700}
+.spb-comparison-pair dd{border-left:1px solid var(--spb-off-white);color:var(--spb-navy-secondary);font-weight:600}
+@media(max-width:900px){.spb-comparison{padding:72px 22px}.spb-comparison-header{margin-bottom:36px}.spb-comparison-table-wrap{display:none}.spb-comparison-mobile{display:grid;grid-template-columns:1fr;gap:20px}}
+@media(max-width:700px){.spb-comparison{padding:56px 18px}.spb-comparison-header{margin-bottom:31px}.spb-comparison-intro{font-size:15px}.spb-comparison-mobile{gap:18px}}
+@media(max-width:520px){.spb-comparison-card-header{align-items:flex-start;padding:19px}.spb-comparison-card-tier{font-size:20px}.spb-comparison-card-price{font-size:19px}.spb-comparison-pair{grid-template-columns:1fr}.spb-comparison-pair dt,.spb-comparison-pair dd{padding:11px 16px}.spb-comparison-pair dt{padding-bottom:4px}.spb-comparison-pair dd{padding-top:0;border-left:0}.spb-comparison-card-category{padding-right:16px;padding-left:16px}}
+@media(max-width:390px){.spb-comparison-title{font-size:32px}.spb-comparison-card-header{gap:12px;padding:17px 16px}.spb-comparison-card-tier{font-size:18px}.spb-comparison-card-price{font-size:18px}.spb-comparison-pair dt,.spb-comparison-pair dd{font-size:12px}}
+</style>
+
+<section class="spb-comparison" id="full-benefits" aria-labelledby="spb-comparison-title">
+  <div class="spb-comparison-inner">
+    <header class="spb-comparison-header">
+      <p class="spb-comparison-eyebrow">COMPARE EVERY BENEFIT</p>
+      <h2 class="spb-comparison-title" id="spb-comparison-title">FIND THE RIGHT LEVEL FOR YOUR EVENT GOALS</h2>
+      <p class="spb-comparison-intro">The same 22 benefits appear for every tier below, so each package can be compared line by line.</p>
+    </header>
+
+    <div class="spb-comparison-table-wrap">
+      <table class="spb-comparison-table">
+        <caption class="spb-comparison-caption">Complete sponsor benefits comparison by tier</caption>
+        <thead>
+          <tr>
+            <th scope="col">Benefit</th>
+            <th class="spb-comparison-tier-head spb-comparison-tier-head--scout" scope="col">Scout</th>
+            <th class="spb-comparison-tier-head spb-comparison-tier-head--pathfinder" scope="col">Pathfinder</th>
+            <th class="spb-comparison-tier-head spb-comparison-tier-head--firekeeper" scope="col">FireKeeper</th>
+            <th class="spb-comparison-tier-head spb-comparison-tier-head--lorekeeper" scope="col">LoreKeeper</th>
+            <th class="spb-comparison-tier-head spb-comparison-tier-head--chieftain" scope="col">Chieftain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="spb-comparison-category"><th scope="rowgroup" colspan="6">EVENT BENEFITS</th></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Listing in Sponsor Guide</th><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Video of Services Provided</th><td>1 minute</td><td>2 minutes</td><td>2 minutes</td><td>3 minutes</td><td>5 minutes</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Discount Packet Participation</th><td>Included</td><td>Included</td><td>Included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTalks Interview</th><td>Not included</td><td>2 minutes</td><td>2 minutes</td><td>3 minutes</td><td>5 minutes</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Event Program Ad</th><td>Not included</td><td>1/8 page</td><td>1/4 page</td><td>1/2 page</td><td>Full Page</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Covered Booth Space</th><td>Not included</td><td>Not included</td><td>Included</td><td>Not included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Regional Booth Sponsor</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Not included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTribe Peptide Reference Catalog Ad</th><td>Not included</td><td>Not included</td><td>Not included</td><td>1/2 page</td><td>Full Page</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Water Station Placement</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Logo on Event Bags</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Industry Exclusivity</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Education Session Sponsor &amp; Introduction</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Covered Booth Space &amp; Lounge with Water Stations</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Logo on Event Shirts</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
+        </tbody>
+        <tbody>
+          <tr class="spb-comparison-category"><th scope="rowgroup" colspan="6">PEPTRIBE PLATFORM BENEFITS</th></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Sponsor List Webpage with Link</th><td>Name, Link &amp; Service Video</td><td>Scout + PepTalks</td><td>Pathfinder + Bigger Ad</td><td>FireKeeper + PepTales Link</td><td>LoreKeeper + PepTales Episode</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">Sponsor Landing Page</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTales Sponsor</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td><td>Included</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTribe Peptide Reference Catalog Ad</th><td>Not included</td><td>Not included</td><td>Not included</td><td>1/2 page</td><td>Full Page</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTales Guest &amp; Sponsor</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>Included</td></tr>
+        </tbody>
+        <tbody>
+          <tr class="spb-comparison-category"><th scope="rowgroup" colspan="6">NETWORKING &amp; ROI BENEFITS</th></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">BXN Membership</th><td>Waived Initial Fee ($75 value)</td><td>Waived Initial Fee ($75 value)</td><td>Waived Initial Fee ($75 value)</td><td>3 Months Free</td><td>6 Months Free</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">PepTribe Partner Fun Day Invites</th><td>Not included</td><td>Not included</td><td>Not included</td><td>2</td><td>4</td></tr>
+          <tr class="spb-comparison-benefit-row"><th scope="row">ROI Guarantee</th><td>Not included</td><td>Not included</td><td>Not included</td><td>Not included</td><td>10X Referrals</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="spb-comparison-mobile" aria-label="Sponsor benefits by tier">
+      <article class="spb-comparison-card spb-comparison-card--scout">
+        <header class="spb-comparison-card-header"><h3 class="spb-comparison-card-tier">Scout</h3><p class="spb-comparison-card-price">$100</p></header>
+        <h4 class="spb-comparison-card-category">EVENT BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Listing in Sponsor Guide</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Video of Services Provided</dt><dd>1 minute</dd></div>
+          <div class="spb-comparison-pair"><dt>Discount Packet Participation</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTalks Interview</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Event Program Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Regional Booth Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Water Station Placement</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Bags</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Industry Exclusivity</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Education Session Sponsor &amp; Introduction</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space &amp; Lounge with Water Stations</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Shirts</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">PEPTRIBE PLATFORM BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Sponsor List Webpage with Link</dt><dd>Name, Link &amp; Service Video</dd></div>
+          <div class="spb-comparison-pair"><dt>Sponsor Landing Page</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Guest &amp; Sponsor</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">NETWORKING &amp; ROI BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>BXN Membership</dt><dd>Waived Initial Fee ($75 value)</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Partner Fun Day Invites</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>ROI Guarantee</dt><dd>Not included</dd></div>
+        </dl>
+      </article>
+
+      <article class="spb-comparison-card spb-comparison-card--pathfinder">
+        <header class="spb-comparison-card-header"><h3 class="spb-comparison-card-tier">Pathfinder</h3><p class="spb-comparison-card-price">$250</p></header>
+        <h4 class="spb-comparison-card-category">EVENT BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Listing in Sponsor Guide</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Video of Services Provided</dt><dd>2 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Discount Packet Participation</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTalks Interview</dt><dd>2 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Event Program Ad</dt><dd>1/8 page</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Regional Booth Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Water Station Placement</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Bags</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Industry Exclusivity</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Education Session Sponsor &amp; Introduction</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space &amp; Lounge with Water Stations</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Shirts</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">PEPTRIBE PLATFORM BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Sponsor List Webpage with Link</dt><dd>Scout + PepTalks</dd></div>
+          <div class="spb-comparison-pair"><dt>Sponsor Landing Page</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Guest &amp; Sponsor</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">NETWORKING &amp; ROI BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>BXN Membership</dt><dd>Waived Initial Fee ($75 value)</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Partner Fun Day Invites</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>ROI Guarantee</dt><dd>Not included</dd></div>
+        </dl>
+      </article>
+
+      <article class="spb-comparison-card spb-comparison-card--firekeeper">
+        <header class="spb-comparison-card-header"><h3 class="spb-comparison-card-tier">FireKeeper</h3><p class="spb-comparison-card-price">$500</p></header>
+        <h4 class="spb-comparison-card-category">EVENT BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Listing in Sponsor Guide</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Video of Services Provided</dt><dd>2 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Discount Packet Participation</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTalks Interview</dt><dd>2 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Event Program Ad</dt><dd>1/4 page</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Regional Booth Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Water Station Placement</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Bags</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Industry Exclusivity</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Education Session Sponsor &amp; Introduction</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space &amp; Lounge with Water Stations</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Shirts</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">PEPTRIBE PLATFORM BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Sponsor List Webpage with Link</dt><dd>Pathfinder + Bigger Ad</dd></div>
+          <div class="spb-comparison-pair"><dt>Sponsor Landing Page</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Guest &amp; Sponsor</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">NETWORKING &amp; ROI BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>BXN Membership</dt><dd>Waived Initial Fee ($75 value)</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Partner Fun Day Invites</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>ROI Guarantee</dt><dd>Not included</dd></div>
+        </dl>
+      </article>
+
+      <article class="spb-comparison-card spb-comparison-card--lorekeeper">
+        <header class="spb-comparison-card-header"><h3 class="spb-comparison-card-tier">LoreKeeper</h3><p class="spb-comparison-card-price">$1,000</p></header>
+        <h4 class="spb-comparison-card-category">EVENT BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Listing in Sponsor Guide</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Video of Services Provided</dt><dd>3 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Discount Packet Participation</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTalks Interview</dt><dd>3 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Event Program Ad</dt><dd>1/2 page</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Regional Booth Sponsor</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>1/2 page</dd></div>
+          <div class="spb-comparison-pair"><dt>Water Station Placement</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Bags</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Industry Exclusivity</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Education Session Sponsor &amp; Introduction</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space &amp; Lounge with Water Stations</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Shirts</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">PEPTRIBE PLATFORM BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Sponsor List Webpage with Link</dt><dd>FireKeeper + PepTales Link</dd></div>
+          <div class="spb-comparison-pair"><dt>Sponsor Landing Page</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Sponsor</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>1/2 page</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Guest &amp; Sponsor</dt><dd>Not included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">NETWORKING &amp; ROI BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>BXN Membership</dt><dd>3 Months Free</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Partner Fun Day Invites</dt><dd>2</dd></div>
+          <div class="spb-comparison-pair"><dt>ROI Guarantee</dt><dd>Not included</dd></div>
+        </dl>
+      </article>
+
+      <article class="spb-comparison-card spb-comparison-card--chieftain">
+        <header class="spb-comparison-card-header"><h3 class="spb-comparison-card-tier">Chieftain</h3><p class="spb-comparison-card-price">$2,500</p></header>
+        <h4 class="spb-comparison-card-category">EVENT BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Listing in Sponsor Guide</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Video of Services Provided</dt><dd>5 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Discount Packet Participation</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTalks Interview</dt><dd>5 minutes</dd></div>
+          <div class="spb-comparison-pair"><dt>Event Program Ad</dt><dd>Full Page</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Regional Booth Sponsor</dt><dd>Not included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Full Page</dd></div>
+          <div class="spb-comparison-pair"><dt>Water Station Placement</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Bags</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Industry Exclusivity</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Education Session Sponsor &amp; Introduction</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Covered Booth Space &amp; Lounge with Water Stations</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>Logo on Event Shirts</dt><dd>Included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">PEPTRIBE PLATFORM BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>Sponsor List Webpage with Link</dt><dd>LoreKeeper + PepTales Episode</dd></div>
+          <div class="spb-comparison-pair"><dt>Sponsor Landing Page</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Sponsor</dt><dd>Included</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Peptide Reference Catalog Ad</dt><dd>Full Page</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTales Guest &amp; Sponsor</dt><dd>Included</dd></div>
+        </dl>
+        <h4 class="spb-comparison-card-category">NETWORKING &amp; ROI BENEFITS</h4>
+        <dl class="spb-comparison-list">
+          <div class="spb-comparison-pair"><dt>BXN Membership</dt><dd>6 Months Free</dd></div>
+          <div class="spb-comparison-pair"><dt>PepTribe Partner Fun Day Invites</dt><dd>4</dd></div>
+          <div class="spb-comparison-pair"><dt>ROI Guarantee</dt><dd>10X Referrals</dd></div>
+        </dl>
+      </article>
+    </div>
+  </div>
+</section>
