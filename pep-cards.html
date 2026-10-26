@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pep-Cards-Preview | PepTribe</title>
+<meta name="description" content="Explore PepTribe Pep-Cards — visual peptide reference cards connected to the PepTribe Body Atlas.">
+<meta name="theme-color" content="#091326">
+<meta property="og:title" content="Pep-Cards | PepTribe">
+<meta property="og:description" content="See the signal. Understand the system. Explore PepTribe Pep-Cards, next-generation reference cards, and Body Atlas connections.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://peptribe.us/pep_cards">
+<style>
+@font-face{
+  font-family:'PepTribe';
+  src:url('https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a8dffdb3c7881dfcf88e807.woff2') format('woff2');
+  font-display:swap;
+}
+:root{
+  --bg:hsl(220 25% 5%);
+  --card:hsl(220 20% 10%);
+  --card2:hsl(220 20% 12%);
+  --fg:hsl(210 40% 98%);
+  --muted:hsl(215 20% 62%);
+  --border:hsl(220 15% 20%);
+  --purple:hsl(270 70% 60%);
+  --cyan:hsl(190 85% 53%);
+  --pink:hsl(330 80% 58%);
+  --orange:hsl(25 95% 55%);
+  --blue:#0B57B7;
+  --green:#4C9B33;
+  --teal:#169C9C;
+  --red:#E1262F;
+  --magenta:#CF1976;
+  --gold:#C79A18;
+  --maroon:#A51D34;
+  --font:'PepTribe','Poppins',Arial,sans-serif;
+  --body:Inter,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} img{display:block;max-width:100%} button{font:inherit}
+.pt-wrap{overflow:visible}
+.pt-shell{width:min(1180px,calc(100% - 36px));margin:auto}
+.pt-section{padding:92px 0;position:relative}
+.pt-kicker{display:flex;align-items:center;gap:9px;color:var(--cyan);font:900 11px/1 var(--font);letter-spacing:.15em;text-transform:uppercase;margin-bottom:13px}
+.pt-kicker i{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 14px var(--orange)}
+.pt-title{margin:0;font:900 clamp(38px,5vw,60px)/.98 var(--font);letter-spacing:-.03em}
+.pt-sub{max-width:760px;margin:18px 0 0;color:var(--muted);font-size:16px;line-height:1.75}
+.pt-btn{min-height:49px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;border-radius:12px;border:1px solid transparent;font:900 11px/1 var(--font);letter-spacing:.055em;text-transform:uppercase;cursor:pointer;transition:.2s ease}
+.pt-btn.primary{background:linear-gradient(135deg,var(--cyan),#56E0E8);color:#061B27;box-shadow:0 0 30px rgba(31,200,215,.16)}
+.pt-btn.primary:hover{transform:translateY(-2px)}
+.pt-btn.ghost{border-color:rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:#fff}
+.pt-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ATLAS COSMIC HERO */
+.pt-hero{
+  min-height:780px;display:flex;align-items:center;position:relative;
+  background:
+    radial-gradient(circle at 78% 34%,rgba(31,201,215,.14),transparent 25%),
+    radial-gradient(circle at 20% 16%,rgba(153,83,223,.17),transparent 30%),
+    linear-gradient(150deg,hsl(220 25% 5%),hsl(222 30% 8%) 60%,hsl(260 32% 11%));
+  border-bottom:1px solid var(--border)
+}
+.pt-stars:before{
+  content:'';position:absolute;inset:0;opacity:.38;pointer-events:none;
+  background-image:
+  radial-gradient(2px 2px at 20px 30px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 90px 40px,#fff 50%,transparent 51%),
+  radial-gradient(1px 1px at 160px 90px,rgba(255,255,255,.7) 50%,transparent 51%),
+  radial-gradient(2px 2px at 260px 55px,rgba(255,255,255,.65) 50%,transparent 51%);
+  background-size:350px 120px
+}
+.pt-hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr .95fr;gap:56px;align-items:center;padding:82px 0}
+.pt-hero h1{margin:0 0 19px;font:900 clamp(58px,7vw,92px)/.9 var(--font);letter-spacing:-.04em}
+.pt-hero h1 span{display:block;margin-top:11px;font-size:.43em;line-height:1.06;background:linear-gradient(90deg,#fff,#8CE8F1 55%,#C598FF);-webkit-background-clip:text;color:transparent}
+.pt-hero p{max-width:650px;margin:0 0 28px;color:hsl(215 20% 70%);font-size:17px;line-height:1.72}
+.pt-card-stack{position:relative;min-height:590px}
+.pt-card-frame{
+ position:absolute;left:-8px;top:-18px;width:375px;padding:10px;border-radius:28px;
+ background:#fff;border:3px solid #0B57B7;box-shadow:0 32px 80px rgba(0,0,0,.48),0 0 35px rgba(31,200,215,.09);
+ transform:rotate(-4deg);z-index:2
+}
+.pt-card-frame img{width:100%;border-radius:19px}
+.pt-prof{position:absolute;right:-38px;bottom:-28px;width:360px;z-index:3;filter:drop-shadow(0 24px 28px rgba(0,0,0,.34))}
+.pt-float-badge{
+ position:absolute;left:300px;top:20px;z-index:4;padding:9px 12px;border-radius:999px;
+ background:rgba(8,20,42,.9);border:1px solid rgba(31,200,215,.35);color:var(--cyan);
+ font:900 9px/1 var(--font);letter-spacing:.1em;text-transform:uppercase
+}
+
+/* CARD COLOR KEY */
+.pt-colorbar{display:grid;grid-template-columns:repeat(9,1fr);height:9px}
+.pt-colorbar span:nth-child(1){background:var(--blue)} .pt-colorbar span:nth-child(2){background:var(--green)}
+.pt-colorbar span:nth-child(3){background:var(--orange)} .pt-colorbar span:nth-child(4){background:var(--teal)}
+.pt-colorbar span:nth-child(5){background:#7A3FB0} .pt-colorbar span:nth-child(6){background:var(--red)}
+.pt-colorbar span:nth-child(7){background:var(--magenta)} .pt-colorbar span:nth-child(8){background:var(--gold)} .pt-colorbar span:nth-child(9){background:var(--maroon)}
+.pt-key{background:#fff;color:#101C35;border-bottom:1px solid #d9e1ea}
+.pt-key-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.pt-key-item{display:flex;align-items:center;gap:12px;padding:18px 20px;border-right:1px solid #e2e8f0}
+.pt-key-item:last-child{border-right:0}
+.pt-key-swatch{width:12px;height:42px;border-radius:9px;background:var(--c);box-shadow:0 0 15px color-mix(in srgb,var(--c) 35%,transparent)}
+.pt-key-item strong{display:block;font:900 14px/1.2 var(--font);color:#062452}
+.pt-key-item span{display:block;margin-top:4px;color:#64748b;font-size:11px;line-height:1.45}
+
+/* REAL CARD INTERACTIVE TOUR */
+.pt-tour{background:linear-gradient(180deg,hsl(220 25% 5%),hsl(220 24% 7%))}
+.pt-tour-grid{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:42px;margin-top:44px;align-items:start;overflow:visible}
+.pt-real-card-stage{
+ position:relative;padding:24px;border:1px solid var(--border);border-radius:24px;
+ background:radial-gradient(circle at 50% 0%,rgba(31,200,215,.06),transparent 45%),var(--card);
+ box-shadow:0 0 35px rgba(31,200,215,.07) inset
+}
+.pt-real-card-wrap{position:relative;max-width:650px;margin:auto}
+.pt-real-card-wrap img{width:100%;border-radius:18px;box-shadow:0 22px 55px rgba(0,0,0,.42)}
+.pt-pin{
+ position:absolute;width:32px;height:32px;border-radius:50%;border:2px solid #fff;
+ background:var(--cyan);color:#062331;font:900 11px/1 var(--font);cursor:pointer;
+ display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px rgba(31,200,215,.19),0 6px 16px rgba(0,0,0,.3);transition:.18s ease
+}
+.pt-pin:hover,.pt-pin.active{background:var(--orange);color:#fff;transform:scale(1.1);box-shadow:0 0 0 7px rgba(255,138,41,.18),0 6px 16px rgba(0,0,0,.3)}
+.pt-tour-info{position:-webkit-sticky;position:sticky;top:96px;align-self:start;padding:27px;border:1px solid var(--border);border-radius:22px;background:var(--card2);box-shadow:0 18px 50px rgba(0,0,0,.2);z-index:50}
+.pt-marker-label{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(31,200,215,.1);color:var(--cyan);font:900 9px/1 var(--font);letter-spacing:.08em;text-transform:uppercase}
+.pt-tour-info h3{margin:16px 0 10px;font:900 28px/1.05 var(--font)}
+.pt-tour-info p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.pt-prof-tip{display:grid;grid-template-columns:88px 1fr;gap:14px;align-items:center;margin-top:22px;padding-top:20px;border-top:1px solid var(--border)}
+.pt-prof-tip img{width:88px;height:88px;object-fit:contain}
+.pt-prof-tip strong{display:block;font:900 11px/1.2 var(--font);color:var(--cyan);margin-bottom:4px}
+.pt-prof-tip span{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* 2 PAGE TEASE */
+.pt-next{background:#fff;color:#10203d}
+.pt-next .pt-title{color:#062452}
+.pt-next .pt-sub{color:#64748b}
+.pt-next-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;margin-top:42px}
+.pt-page-pair{position:relative;min-height:600px}
+.pt-page{
+ position:absolute;width:340px;padding:8px;border-radius:20px;background:#fff;
+ border:2px solid #0B57B7;box-shadow:0 24px 55px rgba(12,48,99,.16)
+}
+.pt-page img{width:100%;border-radius:13px}
+.pt-page.front{left:0;top:5px;transform:rotate(-3deg);z-index:2}
+.pt-page.back{right:0;top:38px;transform:rotate(5deg);z-index:1}
+.pt-page-lock{position:absolute;inset:42% 12px 12px;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:13px;background:rgba(5,18,41,.83);backdrop-filter:blur(4px);color:#fff}
+.pt-page-lock b{display:block;font:900 16px/1.2 var(--font);margin-bottom:5px}
+.pt-page-lock span{font-size:10px;color:rgba(255,255,255,.7);line-height:1.45}
+.pt-next-list{display:grid;gap:12px;margin-top:24px}
+.pt-next-item{display:grid;grid-template-columns:12px 1fr;gap:12px;align-items:start;padding:14px 15px;border:1px solid #dbe5ee;border-radius:13px;background:#f8fbfd}
+.pt-next-item i{width:12px;height:32px;border-radius:8px;background:var(--c)}
+.pt-next-item strong{display:block;font:900 12px/1.3 var(--font);color:#082859;margin-bottom:3px}
+.pt-next-item span{display:block;color:#64748b;font-size:11px;line-height:1.5}
+
+/* FREE PREVIEW */
+.pt-preview{background:var(--bg)}
+.pt-preview-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+.pt-preview-card{overflow:hidden;border:1px solid var(--border);border-radius:22px;background:var(--card);box-shadow:0 18px 45px rgba(0,0,0,.22)}
+.pt-preview-img{height:360px;padding:16px;display:flex;align-items:center;justify-content:center;background:#f4f7fb}
+.pt-preview-img img{max-height:100%;max-width:100%;object-fit:contain;box-shadow:0 12px 25px rgba(0,0,0,.14)}
+.pt-preview-body{padding:18px}
+.pt-preview-cat{font:900 9px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.pt-preview-body h3{margin:9px 0 6px;font:900 24px/1 var(--font)}
+.pt-preview-body p{margin:0 0 15px;color:var(--muted);font-size:11px;line-height:1.55}
+.pt-preview-body .pt-btn{width:100%}
+.pt-gate{margin-top:26px;padding:27px;border:1px solid rgba(153,83,223,.28);border-radius:22px;background:radial-gradient(circle at 90% 0%,rgba(255,138,41,.14),transparent 25%),linear-gradient(135deg,hsl(220 20% 10%),hsl(260 28% 14%));display:grid;grid-template-columns:110px 1fr auto;gap:22px;align-items:center}
+.pt-gate img{width:110px}
+.pt-gate h3{margin:0 0 6px;font:900 22px/1.1 var(--font)}
+.pt-gate p{margin:0;color:var(--muted);font-size:12px;line-height:1.55}
+
+/* ATLAS CONNECTION */
+.pt-atlas{background:linear-gradient(145deg,hsl(220 25% 5%),hsl(220 28% 8%),hsl(260 30% 10%));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.pt-atlas-grid{display:grid;grid-template-columns:1fr .85fr;gap:50px;align-items:center}
+.pt-atlas-map{position:relative;min-height:430px;display:flex;align-items:center;justify-content:center}
+.pt-atlas-map:before{content:'';position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(31,200,215,.2);box-shadow:0 0 65px rgba(31,200,215,.08) inset}
+.pt-atlas-map img{position:relative;z-index:2;width:min(315px,80%);filter:drop-shadow(0 20px 30px rgba(0,0,0,.42))}
+.pt-flow{display:flex;gap:7px;flex-wrap:wrap;margin-top:24px}
+.pt-flow span{padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);font:900 9px/1 var(--font);letter-spacing:.04em;text-transform:uppercase;color:hsl(215 20% 70%)}
+
+/* MEMBER */
+.pt-member{background:#fff;color:#10203d}
+.pt-member-box{padding:55px;border-radius:28px;background:linear-gradient(145deg,#07142B,#17113C);color:#fff;box-shadow:0 28px 70px rgba(8,25,60,.16)}
+.pt-member-grid{display:grid;grid-template-columns:1fr .85fr;gap:44px;align-items:center}
+.pt-benefits{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.pt-benefit{padding:13px 14px;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(255,255,255,.04);font-size:11px;color:hsl(215 20% 72%)}
+.pt-benefit b{color:var(--cyan)}
+
+/* IMAGE MODAL */
+.pt-modal{position:fixed;inset:0;z-index:10000;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(3,8,18,.9);backdrop-filter:blur(8px)}
+.pt-modal.open{display:flex}
+.pt-modal-box{position:relative;width:min(920px,96vw);height:min(90vh,920px);display:flex;align-items:center;justify-content:center}
+.pt-modal-img{max-width:100%;max-height:100%;object-fit:contain;border-radius:16px;box-shadow:0 30px 90px rgba(0,0,0,.55)}
+.pt-close{position:absolute;right:6px;top:6px;z-index:2;width:42px;height:42px;border:0;border-radius:11px;background:#07162F;color:#fff;font-size:28px;cursor:pointer;box-shadow:0 5px 18px rgba(0,0,0,.3)}
+
+.pt-footer{padding:28px 0;background:#061020;text-align:center;color:hsl(215 20% 50%);font-size:11px}
+
+@media(max-width:1000px){
+ .pt-hero-grid,.pt-tour-grid,.pt-next-grid,.pt-atlas-grid,.pt-member-grid{grid-template-columns:1fr}
+ .pt-card-stack{width:min(570px,100%);margin:auto}
+ .pt-tour-info{position:relative;top:auto}
+ .pt-preview-grid{grid-template-columns:1fr 1fr}
+ .pt-key-grid{grid-template-columns:1fr}
+ .pt-key-item{border-right:0;border-bottom:1px solid #e2e8f0}
+ .pt-gate{grid-template-columns:100px 1fr} .pt-gate .pt-actions{grid-column:1/-1}
+ .pt-page-pair{max-width:720px;margin:auto;width:100%}
+}
+@media(max-width:680px){
+ .pt-shell{width:min(100% - 22px,1180px)}
+ .pt-section{padding:70px 0}
+ .pt-hero-grid{padding:62px 0 50px;gap:30px}
+ .pt-hero h1{font-size:54px}
+ .pt-card-stack{min-height:470px}
+ .pt-card-frame{width:260px}
+ .pt-prof{width:275px;right:-52px}
+ .pt-float-badge{left:auto;right:0;top:15px}
+ .pt-preview-grid,.pt-benefits{grid-template-columns:1fr}
+ .pt-page-pair{min-height:470px} .pt-page{width:230px}
+ .pt-gate{grid-template-columns:1fr;text-align:center} .pt-gate img{margin:auto}
+ .pt-member-box{padding:34px 20px}
+ .pt-actions{display:grid} .pt-btn{width:100%}
+ .pt-real-card-stage{padding:12px}
+ .pt-pin{width:29px;height:29px}
+}
+
+@media(min-width:681px) and (max-width:1150px){
+  .pt-float-badge{left:auto;right:6px;top:12px}
+  .pt-card-frame{left:0;top:0;width:340px}
+  .pt-prof{right:-28px;width:330px}
+}
+
+
+/* Keep the interactive description panel floating beside the tall card */
+.pt-tour,
+.pt-tour .pt-shell,
+.pt-tour-grid{
+  overflow:visible !important;
+}
+.pt-tour-info{
+  position:-webkit-sticky !important;
+  position:sticky !important;
+  top:96px !important;
+  align-self:start !important;
+}
+@media(max-width:1000px){
+  .pt-tour-info{
+    position:relative !important;
+    top:auto !important;
+  }
+}
+
+
+/* PHASE 1 PRODUCTION POLISH */
+.pt-research{background:linear-gradient(180deg,#fff,#f7fbfd);color:#10203d;padding-top:68px;padding-bottom:78px}
+.pt-research .pt-title{color:#062452}
+.pt-research .pt-sub{color:#64748b}
+.pt-research-box{
+  display:grid;
+  grid-template-columns:1fr 300px;
+  gap:34px;
+  align-items:center;
+  padding:34px;
+  border:1px solid #dbe5ee;
+  border-radius:22px;
+  background:#fff;
+  box-shadow:0 18px 45px rgba(12,48,99,.06);
+}
+.pt-research-note{
+  padding:22px;
+  border-radius:16px;
+  background:linear-gradient(145deg,#07142B,#17113C);
+  color:#fff;
+  border:1px solid rgba(31,200,215,.14);
+}
+.pt-research-note strong{
+  display:block;
+  color:var(--cyan);
+  font:900 10px/1 var(--font);
+  letter-spacing:.12em;
+  margin-bottom:9px;
+}
+.pt-research-note span{
+  display:block;
+  color:hsl(215 20% 72%);
+  font-size:12px;
+  line-height:1.6;
+}
+.pt-pin:focus-visible,.pt-btn:focus-visible,.pt-close:focus-visible{
+  outline:2px solid var(--cyan);
+  outline-offset:3px;
+}
+.pt-real-card-wrap img,.pt-preview-img img,.pt-page img{user-select:none;-webkit-user-drag:none}
+.pt-preview-card,.pt-key-item,.pt-next-item,.pt-tour-info,.pt-member-box{transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+@media(hover:hover) and (pointer:fine){
+  .pt-preview-card:hover{transform:translateY(-4px);border-color:rgba(31,200,215,.35)}
+  .pt-next-item:hover{transform:translateX(3px)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+}
+@media(max-width:1000px){
+  .pt-research-box{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .pt-research-box{padding:24px 18px}
+  .pt-tour-info{margin-top:14px}
+  .pt-preview-img{height:300px}
+}
+
+
+/* ===== PRODUCTION TOPBAR ===== */
+.pt-topbar{
+  position:relative;
+  z-index:100;
+  border-bottom:1px solid var(--border);
+  background:rgba(6,16,32,.96);
+}
+.pt-topbar-inner{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+}
+.pt-brand{
+  color:#fff;
+  font:900 18px/1 var(--font);
+  letter-spacing:.08em;
+}
+.pt-topnav{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.pt-topnav a{
+  color:hsl(215 20% 72%);
+  font:900 10px/1 var(--font);
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  transition:color .2s ease;
+}
+.pt-topnav a:hover{color:var(--cyan)}
+@media(max-width:720px){
+  .pt-topbar-inner{min-height:54px}
+  .pt-topnav{gap:12px}
+  .pt-topnav a:nth-child(1),
+  .pt-topnav a:nth-child(2){display:none}
+}
+
+/* ===== PRODUCTION TUNING ===== */
+.pt-hero{min-height:740px}
+.pt-hero-grid{padding-top:76px}
+.pt-tour-info{max-height:calc(100vh - 120px);overflow:auto;scrollbar-width:thin}
+.pt-tour-info::-webkit-scrollbar{width:6px}
+.pt-tour-info::-webkit-scrollbar-thumb{background:rgba(31,200,215,.25);border-radius:99px}
+.pt-modal-img{background:#fff}
+.pt-footer{border-top:1px solid rgba(255,255,255,.05)}
+
+@media(max-width:1000px){
+  .pt-tour-info{max-height:none;overflow:visible}
+}
+
+
+/* ===== ATLAS DEEP-LINK PANEL ===== */
+.pt-atlas-target{
+  display:none;
+  margin:28px 0 24px;
+  padding:18px 20px;
+  border-radius:16px;
+  border:1px solid rgba(31,200,215,.24);
+  background:linear-gradient(135deg,rgba(31,200,215,.08),rgba(153,83,223,.07)),rgba(255,255,255,.025);
+  box-shadow:0 18px 45px rgba(0,0,0,.16);
+}
+.pt-atlas-target.show{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+}
+.pt-atlas-target-copy{min-width:0}
+.pt-atlas-target-label{
+  color:var(--cyan);
+  font:900 9px/1 var(--font);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+.pt-atlas-target h3{
+  margin:0 0 7px;
+  font:900 24px/1.05 var(--font);
+}
+.pt-atlas-target p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55;
+}
+.pt-atlas-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.pt-atlas-actions .pt-btn{white-space:nowrap}
+.pt-atlas-preview-btn{
+  background:rgba(31,200,215,.10);
+  color:var(--cyan);
+  border:1px solid rgba(31,200,215,.28);
+}
+.pt-atlas-preview-btn:hover{
+  background:rgba(31,200,215,.16);
+  border-color:rgba(31,200,215,.46);
+}
+.pt-preview-card.atlas-match{
+  outline:2px solid var(--cyan);
+  outline-offset:4px;
+  box-shadow:0 0 0 1px rgba(31,200,215,.25),0 18px 50px rgba(31,200,215,.14);
+}
+
+/* ===== ISOLATED ATLAS CARD PREVIEW MODAL ===== */
+.pt-atlas-modal{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  background:rgba(2,8,18,.82);
+  backdrop-filter:blur(8px);
+}
+.pt-atlas-modal.open{display:flex}
+.pt-atlas-dialog{
+  width:min(760px,96vw);
+  max-height:92vh;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.10);
+  background:#0b1220;
+  box-shadow:0 28px 90px rgba(0,0,0,.55);
+}
+.pt-atlas-modal-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:16px 18px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.pt-atlas-modal-kicker{
+  color:var(--cyan);
+  font:900 8px/1 var(--font);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.pt-atlas-modal-title{
+  margin:0;
+  font:900 20px/1.05 var(--font);
+  color:#fff;
+}
+.pt-atlas-modal-close{
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+}
+.pt-atlas-modal-body{
+  min-height:420px;
+  max-height:72vh;
+  overflow:auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding:18px;
+  background:#08101d;
+}
+.pt-atlas-modal-body img{
+  width:min(560px,100%);
+  height:auto;
+  display:block;
+  border-radius:12px;
+  background:#fff;
+}
+.pt-atlas-modal-body iframe{
+  width:min(560px,100%);
+  height:640px;
+  border:0;
+  border-radius:12px;
+  background:#fff;
+}
+.pt-atlas-modal-foot{
+  padding:12px 18px 16px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.5;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+@media(max-width:720px){
+  .pt-atlas-target.show{align-items:flex-start;flex-direction:column}
+  .pt-atlas-actions{justify-content:flex-start}
+}
+
+
+/* ===== REDUCE DEEP-LINK SCROLL JITTER ===== */
+#atlasCardTarget{
+  scroll-margin-top:24px;
+  overflow-anchor:none;
+}
+
+
+/* ===== BODY ATLAS DEEP-LINK: SHOW TARGET AT TOP ===== */
+.pt-atlas-target-host{
+  width:100%;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(31,200,215,.08),transparent 28%),
+    linear-gradient(180deg,#071225,#091326);
+  border-bottom:1px solid var(--border);
+}
+.pt-atlas-target-host .pt-shell{
+  padding-top:16px;
+  padding-bottom:16px;
+}
+.pt-atlas-target.pt-atlas-target-top{
+  margin:0;
+}
+@media(max-width:720px){
+  .pt-atlas-target-host .pt-shell{
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+}
+
+</style>
+</head>
+<body class="pep-cards-page">
+<div class="pt-wrap">
+
+<div class="pt-topbar">
+  <div class="pt-shell pt-topbar-inner">
+    <a class="pt-brand" href="https://peptribe.us" aria-label="PepTribe home">PEPTRIBE</a>
+    <nav class="pt-topnav" aria-label="Pep-Cards navigation">
+      <a href="#tour">How It Works</a>
+      <a href="#preview">Free Preview</a>
+      <a href="https://atlas.peptribe.us" target="_blank" rel="noopener">Body Atlas</a>
+      <a href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener">Member Login</a>
+    </nav>
+  </div>
+</div>
+
+
+<section class="pt-hero pt-stars">
+  <div class="pt-shell pt-hero-grid">
+    <div>
+      <div class="pt-kicker"><i></i>PepTribe Visual Reference System</div>
+      <h1>PEP-CARDS<span>The Body Atlas — in your hands.</span></h1>
+      <p>
+        The same color language, system thinking, and peptide pathways used throughout the PepTribe Body Atlas — distilled into visual reference cards you can study, save, and use as a launch point into deeper PepTribe tools.
+      </p>
+      <div class="pt-actions">
+        <a class="pt-btn primary" href="#tour">Explore a Pep-Card →</a>
+        <a class="pt-btn ghost" href="#preview">See Free Previews</a>
+      </div>
+    </div>
+
+    <div class="pt-card-stack">
+      <div class="pt-float-badge">Real TB-500 Next-Gen Card</div>
+      <div class="pt-card-frame">
+        <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a15.png" alt="TB-500 PepTribe card">
+      </div>
+      <img class="pt-prof"
+           src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a9ec6c1a2de8f8e8fbb7dd3.png"
+           alt="Professor Pep pointing">
+    </div>
+  </div>
+</section>
+
+<div class="pt-colorbar" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<section class="pt-key">
+  <div class="pt-shell pt-key-grid">
+    <div class="pt-key-item">
+      <i class="pt-key-swatch" style="--c:var(--cyan)"></i>
+      <div><strong>One Shared Visual Language</strong><span>The Atlas and Pep-Cards use the same body-system/category color logic.</span></div>
+    </div>
+    <div class="pt-key-item">
+      <i class="pt-key-swatch" style="--c:var(--purple)"></i>
+      <div><strong>Color Means Something</strong><span>Blue, green, orange, teal, purple, red, magenta, gold and maroon identify recurring themes.</span></div>
+    </div>
+    <div class="pt-key-item">
+      <i class="pt-key-swatch" style="--c:var(--orange)"></i>
+      <div><strong>Designed for Fast Scanning</strong><span>Title, mechanism, targets, dosing, pairings, cofactors and evidence are visually separated.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-section pt-tour" id="tour">
+  <div class="pt-shell">
+    <div class="pt-kicker"><i></i>Interactive Card Anatomy</div>
+    <h2 class="pt-title">Learn the card by touching the card.</h2>
+    <p class="pt-sub">
+      This is the real TB-500 card — not a generic mockup. Hover or click a numbered marker to see what that part of the Pep-Card is designed to tell you.
+    </p>
+
+    <div class="pt-tour-grid">
+      <div class="pt-real-card-stage">
+        <div class="pt-real-card-wrap">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a15.png" alt="TB-500 Pep-Card anatomy">
+          <button class="pt-pin active" style="left:8%;top:9%" data-info="identity" type="button">1</button>
+          <button class="pt-pin" style="left:9%;top:29%" data-info="benefits" type="button">2</button>
+          <button class="pt-pin" style="right:8%;top:29%" data-info="mechanism" type="button">3</button>
+          <button class="pt-pin" style="left:7%;top:53%" data-info="targets" type="button">4</button>
+          <button class="pt-pin" style="left:7%;top:65%" data-info="route" type="button">5</button>
+          <button class="pt-pin" style="left:7%;top:73%" data-info="dose" type="button">6</button>
+          <button class="pt-pin" style="right:7%;top:62%" data-info="pairs" type="button">7</button>
+          <button class="pt-pin" style="right:7%;top:71%" data-info="cofactors" type="button">8</button>
+          <button class="pt-pin" style="left:7%;top:84%" data-info="storage" type="button">9</button>
+          <button class="pt-pin" style="right:7%;top:88%" data-info="evidence" type="button">10</button>
+        </div>
+      </div>
+
+      <aside class="pt-tour-info">
+        <div class="pt-marker-label" id="markerLabel">Marker 1</div>
+        <h3 id="tourTitle">Title + Category</h3>
+        <p id="tourText">
+          The title tells you the compound. The border/category color identifies the card family so you can recognize the system quickly — the same idea used throughout the Body Atlas.
+        </p>
+        <div class="pt-prof-tip">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a8f1bfe39ff1b9c992e1a22.png" alt="Professor Pep">
+          <div><strong>PROFESSOR PEP</strong><span>Tap any number. The card is meant to be scanned in layers, not read like a textbook page.</span></div>
+        </div>
+      </aside>
+    </div>
+
+      <div class="pt-actions" style="margin-top:28px">
+        <a class="pt-btn primary" href="#preview">Preview Real Pep-Cards</a>
+        <a class="pt-btn ghost" href="https://peptribe.us/scout">Unlock the Full Library</a>
+      </div>
+  </div>
+</section>
+
+<section class="pt-section pt-next">
+  <div class="pt-shell">
+    <div class="pt-kicker"><i></i>Next-Generation Pep-Cards</div>
+    <h2 class="pt-title">Page one explains the signal. Page two goes deeper.</h2>
+    <p class="pt-sub">
+      The new two-page format turns the card into a richer reference system. Page one stays visual and fast.
+      Page two adds deeper practical reference information and a bridge into PepTribe tools.
+    </p>
+
+    <div class="pt-next-grid">
+      <div class="pt-page-pair">
+        <div class="pt-page front">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99498cb032a1c8e037dbb.png" alt="Selank Pep-Card Page 1">
+        </div>
+        <div class="pt-page back">
+          <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994f8196984c408043e83.png" alt="Selank Pep-Card Page 2">
+          <div class="pt-page-lock">
+            <div><b>Page 2 Preview</b><span>Expanded dosing, vial math, coverage, notes and tool connections become part of the member experience.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="pt-next-list">
+          <div class="pt-next-item" style="--c:var(--blue)"><i></i><div><strong>PAGE 1 — UNDERSTAND IT</strong><span>Benefits, mechanism, target areas, route, dosing context, pairings, cofactors, evidence and storage.</span></div></div>
+          <div class="pt-next-item" style="--c:var(--purple)"><i></i><div><strong>PAGE 2 — USE THE REFERENCE</strong><span>Expanded dose-reference information, vial/reconstitution math, draw guidance and supply planning.</span></div></div>
+          <div class="pt-next-item" style="--c:var(--orange)"><i></i><div><strong>CONNECTED TOOLS</strong><span>The deeper layer can link directly into the PepTribe Calculator and related Body Atlas systems.</span></div></div>
+          <div class="pt-next-item" style="--c:var(--green)"><i></i><div><strong>LIBRARY THAT EVOLVES</strong><span>Original cards can be replaced card-by-card as each new two-page version is completed.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-section pt-preview" id="preview">
+  <div class="pt-shell">
+    <div class="pt-kicker"><i></i>Free Preview</div>
+    <h2 class="pt-title">Preview the system before you unlock the library.</h2>
+    <p class="pt-sub">
+      Explore a small number of real Pep-Cards before membership is required. The complete 66-card library, individual downloads, full collection, and all two-page reference cards belong inside the PepTribe Community member experience.
+    </p>
+
+    
+    <div class="pt-atlas-target" id="atlasCardTarget" aria-live="polite">
+      <div class="pt-atlas-target-copy">
+        <div class="pt-atlas-target-label">Opened from Body Atlas</div>
+        <h3 id="atlasCardName">Pep-Card</h3>
+        <p id="atlasCardMessage"></p>
+      </div>
+      <div class="pt-atlas-actions" id="atlasCardActions"></div>
+    </div>
+
+<div class="pt-preview-grid">
+      <article class="pt-preview-card" data-card="tb-500">
+        <div class="pt-preview-img"><img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a15.png" alt="TB-500 Pep-Card preview"></div>
+        <div class="pt-preview-body" style="--c:var(--teal)">
+          <div class="pt-preview-cat">Performance & Recovery</div>
+          <h3>TB-500</h3>
+          <p>Explore a real next-generation recovery and repair card.</p>
+          <button class="pt-btn primary preview-open" data-src="tb" type="button">Open Full Preview</button>
+        </div>
+      </article>
+
+      <article class="pt-preview-card" data-card="ss-31">
+        <div class="pt-preview-img"><img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99499bc55ee8d5699752b.png" alt="SS-31 Pep-Card preview"></div>
+        <div class="pt-preview-body" style="--c:var(--gold)">
+          <div class="pt-preview-cat">Longevity & Cellular Health</div>
+          <h3>SS-31</h3>
+          <p>See how mitochondrial and cellular-energy information is organized visually.</p>
+          <button class="pt-btn primary preview-open" data-src="ss" type="button">Open Full Preview</button>
+        </div>
+      </article>
+
+      <article class="pt-preview-card" data-card="selank">
+        <div class="pt-preview-img"><img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99498cb032a1c8e037dbb.png" alt="Selank Pep-Card preview"></div>
+        <div class="pt-preview-body" style="--c:var(--purple)">
+          <div class="pt-preview-cat">Cognitive & Nervous System</div>
+          <h3>Selank</h3>
+          <p>Preview the front page of a two-page cognitive-system Pep-Card.</p>
+          <button class="pt-btn primary preview-open" data-src="se1" type="button">Open Full Preview</button>
+        </div>
+      </article>
+    </div>
+
+    <div class="pt-gate">
+      <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a933d9ec71cb92aefe5d986.png" alt="Lil Pepe pointing">
+      <div>
+        <h3>You’ve seen the system. Membership unlocks the library.</h3>
+        <p>Unlock the complete 66-card Pep-Card collection, individual downloads, the full two-page library, and connected PepTribe tools.</p>
+      </div>
+      <div class="pt-actions">
+        <a class="pt-btn primary" href="https://peptribe.us/scout">Unlock the Full Library</a>
+        <a class="pt-btn ghost" href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener">Member Login</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pt-section pt-atlas">
+  <div class="pt-shell pt-atlas-grid">
+    <div>
+      <div class="pt-kicker"><i></i>One PepTribe Ecosystem</div>
+      <h2 class="pt-title">The Atlas discovers. The card explains.</h2>
+      <p class="pt-sub">
+        The Pep-Cards do not need to duplicate the Atlas peptide directory. Instead, the Atlas becomes the discovery experience —
+        click a body system, find the signal, then open the matching Pep-Card for a visual reference.
+      </p>
+      <div class="pt-flow"><span>Body Atlas</span><span>→</span><span>Body System</span><span>→</span><span>Pep-Card</span><span>→</span><span>Calculator / Member Tools</span></div>
+      <div class="pt-actions" style="margin-top:24px">
+        <a class="pt-btn primary" href="https://atlas.peptribe.us" target="_blank" rel="noopener">Explore Body Atlas</a>
+      </div>
+    </div>
+    <div class="pt-atlas-map">
+      <img src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a8f21b3722007d7ffd46e0d.png" alt="PepTribe Body Atlas">
+    </div>
+  </div>
+</section>
+
+<section class="pt-section pt-member">
+  <div class="pt-shell">
+    <div class="pt-member-box">
+      <div class="pt-member-grid">
+        <div>
+          <div class="pt-kicker"><i></i>PepTribe Community</div>
+          <h2 class="pt-title">Unlock the reference layer behind the free PepTribe tools.</h2>
+          <p class="pt-sub">
+            Membership is where the complete Pep-Card library can live: full viewing, downloads, the 63-card collection PDF,
+            expanding two-page cards, calculator connections, and future member-only resources.
+          </p>
+          <div class="pt-actions" style="margin-top:26px">
+            <a class="pt-btn primary" href="https://peptribe.us/scout">Join PepTribe Community</a>
+            <a class="pt-btn ghost" href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener">Already a Member? Log In</a>
+          </div>
+        </div>
+        <div class="pt-benefits">
+          <div class="pt-benefit"><b>✓</b> Full Pep-Card library</div>
+          <div class="pt-benefit"><b>✓</b> Individual downloads</div>
+          <div class="pt-benefit"><b>✓</b> 66-card full library PDF <span style="color:var(--orange);font-size:9px;margin-left:4px">MEMBER</span></div>
+          <div class="pt-benefit"><b>✓</b> 61 complete two-page cards</div>
+          <div class="pt-benefit"><b>✓</b> Body Atlas connections</div>
+          <div class="pt-benefit"><b>✓</b> PepTribe tool integrations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="pt-section pt-research">
+  <div class="pt-shell">
+    <div class="pt-research-box">
+      <div>
+        <div class="pt-kicker"><i></i>Educational Reference</div>
+        <h2 class="pt-title">Built for research literacy — not hype.</h2>
+        <p class="pt-sub">
+          Pep-Cards organize peptide information into a fast visual reference: mechanism, target areas,
+          handling context, pairings, cofactors, and evidence cues. They are educational resources and
+          are not a substitute for individualized medical advice or professional clinical judgment.
+        </p>
+      </div>
+      <div class="pt-research-note">
+        <strong>PEPTRIBE STANDARD</strong>
+        <span>Mechanism first. Evidence visible. Context connected.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pt-footer">
+  <div class="pt-shell">
+    <div>PepTribe • Knowledge. Context. Confidence. • Educate • Empower • Elevate</div>
+    <div style="margin-top:7px;font-size:10px;color:hsl(215 20% 42%)">
+      Educational content only. Pep-Cards are not medical advice and are not a substitute for professional clinical guidance.
+    </div>
+  </div>
+</footer>
+</div>
+
+<div class="pt-modal" id="previewModal" aria-hidden="true">
+  <div class="pt-modal-box">
+    <button class="pt-close" id="previewClose" type="button" aria-label="Close">×</button>
+    <img class="pt-modal-img" id="previewModalImg" alt="Pep-Card full preview">
+  </div>
+</div>
+
+<script>
+(function(){
+  const info={
+    identity:['Marker 1','Title + Category','The title identifies the compound and the category/color system tells you what kind of body-system story you are looking at. This same visual logic carries into the Body Atlas.'],
+    benefits:['Marker 2','Benefits','The Benefits section is the fast scan: the practical research themes associated with the peptide, organized into short readable points.'],
+    mechanism:['Marker 3','How It Works','Mechanism explains the biological signal behind the card — the part Professor Pep cares about most. It connects the peptide to pathways rather than marketing claims.'],
+    targets:['Marker 4','Target Areas','Target icons connect recurring body-system themes across the card library. These are natural connection points into Body Atlas regions and systems.'],
+    route:['Marker 5',"How It's Taken",'Route and handling information lives in a dedicated location so the reader knows exactly where to look for practical reference context.'],
+    dose:['Marker 6','Typical Dosing','Dosing information is visually separated from mechanism and benefits. In the next-generation format, Page 2 expands this into deeper reference guidance.'],
+    pairs:['Marker 7','Pairs Well With','Pairings help show that peptides are signals inside systems. They connect one card to related signals and stacks without turning the card into an isolated fact sheet.'],
+    cofactors:['Marker 8','Co-Factors','Co-factors provide context for the body’s ability to execute the signal. This supports PepTribe’s signal → body execution framework.'],
+    storage:['Marker 9','Storage & Handling','Storage and handling gets its own section so refrigeration, light protection, and other handling guidance are easy to locate without mixing them into dosing or mechanism information.'],
+    evidence:['Marker 10','Evidence Level','The evidence area gives readers a quick research-confidence cue so the card can distinguish stronger support from emerging or limited evidence.']
+  };
+  const pins=document.querySelectorAll('.pt-pin');
+  const label=document.getElementById('markerLabel');
+  const title=document.getElementById('tourTitle');
+  const text=document.getElementById('tourText');
+  function show(key,el){
+    const x=info[key]; if(!x)return;
+    label.textContent=x[0];title.textContent=x[1];text.textContent=x[2];
+    pins.forEach(p=>p.classList.remove('active')); if(el)el.classList.add('active');
+  }
+  pins.forEach(p=>{p.addEventListener('click',()=>show(p.dataset.info,p));p.addEventListener('mouseenter',()=>show(p.dataset.info,p));});
+
+  const imageMap={tb:"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a15.png",ss:"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99499bc55ee8d5699752b.png",se1:"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99498cb032a1c8e037dbb.png"};
+  const modal=document.getElementById('previewModal');
+  const modalImg=document.getElementById('previewModalImg');
+  document.querySelectorAll('.preview-open').forEach(b=>b.addEventListener('click',()=>{
+    modalImg.src=imageMap[b.dataset.src];
+    modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+  }));
+  function closeModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');modalImg.src='';}
+  document.getElementById('previewClose').addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal)closeModal();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal();});
+})();
+</script>
+
+<div class="pt-atlas-modal" id="atlasPreviewModal" aria-hidden="true">
+  <div class="pt-atlas-dialog" role="dialog" aria-modal="true" aria-labelledby="atlasPreviewTitle">
+    <div class="pt-atlas-modal-head">
+      <div>
+        <div class="pt-atlas-modal-kicker">Pep-Card Preview</div>
+        <h3 class="pt-atlas-modal-title" id="atlasPreviewTitle">Pep-Card</h3>
+      </div>
+      <button class="pt-atlas-modal-close" id="atlasPreviewClose" type="button" aria-label="Close preview">×</button>
+    </div>
+    <div class="pt-atlas-modal-body" id="atlasPreviewBody"></div>
+    <div class="pt-atlas-modal-foot">
+      Preview only. Scout members unlock the complete 66-card Pep-Card library, full two-page cards, downloads, and member resources.
+    </div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  var PREVIEWS = {"5-amino-1mq":{"name":"5-Amino-1MQ","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948dbc55ee8d5699735a.png"},"abaloparatide":{"name":"Abaloparatide","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948d196984c4080430c0.png"},"adamax":{"name":"Adamax","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948d2e74dc36120986ab.png"},"adipotide":{"name":"Adipotide","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948da19db9abccb6d940.png"},"aod-9604":{"name":"AOD-9604","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948d47854373d7af11de.png"},"ara-290":{"name":"ARA-290","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948d47854373d7af11df.png"},"bpc-157":{"name":"BPC-157","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fcb032a1c8e037c43.png"},"bronchogen":{"name":"Bronchogen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948f47854373d7af1248.png"},"cardiogen":{"name":"Cardiogen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fbc55ee8d56997390.png"},"cartalax":{"name":"Cartalax","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fcb032a1c8e037c4f.png"},"chonluten":{"name":"Chonluten","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948f196984c408043118.png"},"cjc-1295-no-dac":{"name":"CJC-1295 NO DAC","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99490196984c408043144.png"},"cjc-1295-with-dac":{"name":"CJC-1295 with DAC","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99490bc55ee8d569973ce.png"},"cjc-ipa-blend":{"name":"CJC_IPA Blend","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fa19db9abccb6d976.png"},"cortagen":{"name":"Cortagen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99491196984c408043158.png"},"crystagen":{"name":"Crystagen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99491cb032a1c8e037c77.png"},"dihexa":{"name":"Dihexa","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99491196984c408043164.png"},"dsip":{"name":"DSIP","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99491c73b042e141264e1.png"},"epitalon":{"name":"Epitalon","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99491bc55ee8d569973f6.png"},"fox04-dri":{"name":"FOX04-DRI","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99492bc55ee8d5699741e.png"},"ghk-cu":{"name":"GHK-Cu","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99492cb032a1c8e037c9f.png"},"ghrp-2":{"name":"GHRP-2","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949298106dcc4e1f1138.png"},"glow":{"name":"GLOW","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99492cb032a1c8e037cab.png"},"glutathione":{"name":"Glutathione","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949298106dcc4e1f1143.png"},"hcg":{"name":"hCG","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949290b7ca67e9c21899.png"},"hgh":{"name":"HGH","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949290b7ca67e9c218b6.png"},"hmg":{"name":"HMG","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949390b7ca67e9c218dd.png"},"ipamorelin":{"name":"Ipamorelin","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994949f8b31b6ab2c338e.png"},"kisspeptin-10":{"name":"Kisspeptin-10","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99494a19db9abccb6da22.png"},"klow":{"name":"KLOW","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949490b7ca67e9c218e9.png"},"kpv":{"name":"KPV","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99494c73b042e14126593.png"},"livagen":{"name":"Livagen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949447854373d7af131e.png"},"ll-37":{"name":"LL-37","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99495cb032a1c8e037d17.png"},"melanotan-i":{"name":"Melanotan I","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949547854373d7af136e.png"},"melanotan-ii":{"name":"Melanotan II","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949598106dcc4e1f1190.png"},"methylene-blue":{"name":"Methylene Blue","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994952e74dc3612098773.png"},"mk-677":{"name":"MK-677","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99495c73b042e141265cb.png"},"mots-c":{"name":"MOTS-c","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99495a19db9abccb6da5e.png"},"nad-plus":{"name":"NAD+","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994962e74dc361209879b.png"},"ovagen":{"name":"Ovagen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99496c73b042e14126603.png"},"oxytocin":{"name":"Oxytocin","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949690b7ca67e9c21995.png"},"p21":{"name":"P21","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99497a19db9abccb6da8e.png"},"pancragen":{"name":"Pancragen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994972e74dc36120987db.png"},"pe-22-28":{"name":"PE-22-28","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949747854373d7af13ae.png"},"pinealon":{"name":"Pinealon","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994972e74dc36120987e7.png"},"pnc-27":{"name":"PNC-27","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99497196984c408043270.png"},"prostamax":{"name":"Prostamax","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949847854373d7af13d6.png"},"pt-141":{"name":"PT-141","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949847854373d7af13e6.png"},"retatrutide":{"name":"Retatrutide","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949847854373d7af13fa.png"},"selank":{"name":"Selank","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99498cb032a1c8e037dbb.png"},"selank-amidate":{"name":"Selank Amidate","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99498196984c4080432b0.png"},"semax":{"name":"Semax","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994989f8b31b6ab2c340a.png"},"sermorelin":{"name":"Sermorelin","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99499196984c4080432d8.png"},"slu-pp-332":{"name":"SLU-PP-332","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a14.png"},"snap-8":{"name":"Snap-8","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949947854373d7af1422.png"},"ss-31":{"name":"SS-31","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99499bc55ee8d5699752b.png"},"tb-500":{"name":"TB-500","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949a90b7ca67e9c21a15.png"},"tesa-ipa-cjc":{"name":"Tesa-IPA-CJC","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa99499196984c4080432fc.png"},"tesamorelin":{"name":"Tesamorelin","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949ac73b042e1412668f.png"},"testagen":{"name":"Testagen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9949abc55ee8d56997548.png"},"thymosin-alpha-1":{"name":"Thymosin Alpha 1","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948bbc55ee8d5699731a.png"},"tri-heal":{"name":"Tri-Heal","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948b2e74dc361209866f.png"},"vesugen":{"name":"Vesugen","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948b47854373d7af118b.png"},"vilon":{"name":"Vilon","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948b47854373d7af118a.png"},"vip":{"name":"VIP","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948b9f8b31b6ab2c325c.png"},"wolverine":{"name":"Wolverine","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948b9f8b31b6ab2c3267.png"},"cjc-ipa":{"name":"CJC_IPA Blend","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fa19db9abccb6d976.png"},"cjc-1295-and-ipamorelin-blend":{"name":"CJC_IPA Blend","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa9948fa19db9abccb6d976.png"},"nad":{"name":"NAD+","type":"image","src":"https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6aa994962e74dc361209879b.png"}};
+
+  function normalize(value){
+    return String(value || '')
+      .toLowerCase()
+      .replace(/&/g,'and')
+      .replace(/\+/g,'plus')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-+|-+$/g,'');
+  }
+
+  function displayName(slug){
+    if(PREVIEWS[slug] && PREVIEWS[slug].name) return PREVIEWS[slug].name;
+    return slug.split('-').map(function(p){
+      return p.length <= 3 ? p.toUpperCase() : p.charAt(0).toUpperCase()+p.slice(1);
+    }).join(' ');
+  }
+
+  var params = new URLSearchParams(window.location.search);
+  var requested = params.get('card');
+  if(!requested) return;
+
+  var slug = normalize(requested);
+  var record = PREVIEWS[slug];
+  var panel = document.getElementById('atlasCardTarget');
+  var nameEl = document.getElementById('atlasCardName');
+  var msgEl = document.getElementById('atlasCardMessage');
+  var actionsEl = document.getElementById('atlasCardActions');
+  var modal = document.getElementById('atlasPreviewModal');
+  var modalBody = document.getElementById('atlasPreviewBody');
+  var modalTitle = document.getElementById('atlasPreviewTitle');
+  var modalClose = document.getElementById('atlasPreviewClose');
+
+  if(!panel || !nameEl || !msgEl || !actionsEl) return;
+
+  var name = displayName(slug);
+  nameEl.textContent = name;
+  panel.classList.add('show');
+
+  // Body Atlas deep links should be obvious immediately.
+  // Move the generated Pep-Card box to the top of the page,
+  // directly below the PepTribe top bar, instead of scrolling down to it.
+  var topbar = document.querySelector('.pt-topbar');
+  if(topbar){
+    var host = document.createElement('div');
+    host.className = 'pt-atlas-target-host';
+
+    var hostShell = document.createElement('div');
+    hostShell.className = 'pt-shell';
+
+    host.appendChild(hostShell);
+    topbar.insertAdjacentElement('afterend', host);
+
+    panel.classList.add('pt-atlas-target-top');
+    hostShell.appendChild(panel);
+  }
+
+  msgEl.textContent = name + ' is part of the PepTribe Pep-Card system. Preview Page 1 here; complete card access is available inside the member library.';
+
+  actionsEl.innerHTML =
+    '<button class="pt-btn pt-atlas-preview-btn" type="button" id="atlasPreviewSelected">Preview Card</button>' +
+    '<a class="pt-btn primary" href="https://peptribe.us/scout">Unlock Full Library</a>' +
+    '<a class="pt-btn ghost" href="https://peptribe.app.clientclub.net/login" target="_blank" rel="noopener">Member Login</a>';
+
+  var freeCard = document.querySelector('.pt-preview-card[data-card="' + slug + '"]');
+  if(freeCard) freeCard.classList.add('atlas-match');
+
+  function openPreview(){
+    if(!record || !modal || !modalBody) return;
+    modalTitle.textContent = record.name || name;
+    modalBody.innerHTML = '';
+
+    if(record.type === 'image'){
+      var img = document.createElement('img');
+      img.src = record.src;
+      img.alt = (record.name || name) + ' Pep-Card preview';
+      modalBody.appendChild(img);
+    } else {
+      var frame = document.createElement('iframe');
+      frame.src = record.src + '#page=1&view=FitH&toolbar=0&navpanes=0&scrollbar=0';
+      frame.title = (record.name || name) + ' Pep-Card preview';
+      frame.loading = 'lazy';
+      modalBody.appendChild(frame);
+    }
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+
+  function closePreview(){
+    if(!modal) return;
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    if(modalBody) modalBody.innerHTML='';
+    document.body.style.overflow='';
+  }
+
+  var previewBtn = document.getElementById('atlasPreviewSelected');
+  if(previewBtn){
+    if(record) previewBtn.addEventListener('click', openPreview);
+    else previewBtn.style.display='none';
+  }
+
+  if(modalClose) modalClose.addEventListener('click', closePreview);
+  if(modal) modal.addEventListener('click', function(e){ if(e.target === modal) closePreview(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closePreview(); });
+
+  // No automatic scrolling is needed now.
+  // The Body Atlas target panel is moved to the top of the page above the hero.
+})();
+</script>
+
+</body>
+</html>

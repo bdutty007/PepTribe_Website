@@ -22,5 +22,5 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Get Busy Living Sponsor Si... | Skipped by user | |
 | PepTribe Questionnaire | Skipped by user (unpublished) | |
 | Pep-Card Member Library | Supplied HTML imported unchanged | pep-card-member-library.html |
-| Pep-Cards | Next: awaiting code | |
-| Get Busy Living | Awaiting code | |
+| Pep-Cards | Supplied HTML imported unchanged | pep-cards.html |
+| Get Busy Living | Next: awaiting code | |
