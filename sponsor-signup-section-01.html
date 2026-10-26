@@ -1,0 +1,80 @@
+<!-- PepTribe Sponsor Benefits | Section 1: Hero -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+.spb-hero{--spb-navy:#1A2B4A;--spb-navy-secondary:#243760;--spb-teal:#20C9D9;--spb-purple:#6B4FBB;--spb-orange:#FF8C42;--spb-off-white:#F6F9FC;--spb-white:#fff;position:relative;overflow:hidden;padding:88px 24px;background:radial-gradient(circle at 8% 16%,rgba(32,201,217,.22),transparent 25%),radial-gradient(circle at 91% 83%,rgba(107,79,187,.28),transparent 32%),linear-gradient(135deg,var(--spb-navy) 0%,var(--spb-navy-secondary) 58%,#243760 100%);color:var(--spb-white);font-family:'Inter',sans-serif}
+.spb-hero::before{content:"";position:absolute;width:430px;height:430px;top:-245px;right:-120px;border:1px solid rgba(255,255,255,.13);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.035),0 0 0 84px rgba(255,255,255,.025);pointer-events:none}
+.spb-hero::after{content:"";position:absolute;width:330px;height:330px;bottom:-220px;left:22%;border-radius:50%;background:rgba(32,201,217,.16);filter:blur(42px);pointer-events:none}
+.spb-nav{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:16px;max-width:1200px;margin:0 auto 58px}
+.spb-nav-left{min-width:0;text-align:left}
+.spb-nav-center{text-align:center}
+.spb-nav-right{min-width:0;text-align:right}
+.spb-back,.spb-brand,.spb-login,.spb-cta{font-family:'Poppins',sans-serif;text-decoration:none}
+.spb-back{display:inline-block;color:rgba(255,255,255,.72);font-size:13px;font-weight:600;letter-spacing:.01em;transition:color .2s ease}
+.spb-back:hover{color:var(--spb-teal)}
+.spb-brand{display:inline-block;color:var(--spb-white);font-size:19px;font-weight:900;letter-spacing:.05em;line-height:1}
+.spb-brand-mark{color:var(--spb-teal)}
+.spb-login{display:inline-block;padding:8px 17px;border:1px solid rgba(255,255,255,.42);border-radius:999px;color:var(--spb-white);font-size:13px;font-weight:700;line-height:1;transition:border-color .2s ease,background .2s ease,color .2s ease}
+.spb-login:hover{border-color:var(--spb-teal);background:rgba(32,201,217,.1);color:var(--spb-teal)}
+.spb-shell{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr);gap:64px;align-items:center;max-width:1200px;margin:0 auto}
+.spb-copy{max-width:720px}
+.spb-eyebrow{display:inline-block;margin:0 0 21px;padding:8px 14px;border:1px solid rgba(32,201,217,.4);border-radius:999px;background:rgba(32,201,217,.1);color:var(--spb-teal);font-family:'Poppins',sans-serif;font-size:11px;font-weight:800;letter-spacing:.16em;line-height:1.25}
+.spb-title{max-width:680px;margin:0;color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:clamp(40px,5.35vw,68px);font-weight:900;letter-spacing:-.05em;line-height:1.01}
+.spb-title-accent{color:var(--spb-teal)}
+.spb-lead{max-width:610px;margin:25px 0 0;color:rgba(255,255,255,.9);font-size:18px;font-weight:600;line-height:1.55}
+.spb-support{max-width:630px;margin:13px 0 0;color:rgba(255,255,255,.7);font-size:15px;line-height:1.7}
+.spb-cta{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:11px;margin-top:30px;padding:16px 23px;border-radius:999px;background:linear-gradient(100deg,var(--spb-teal),#20C9D9);box-shadow:0 14px 30px rgba(32,201,217,.24);color:var(--spb-navy);font-size:13px;font-weight:800;letter-spacing:.045em;line-height:1;transition:transform .2s ease,box-shadow .2s ease}
+.spb-cta:hover{transform:translateY(-2px);box-shadow:0 18px 36px rgba(32,201,217,.35)}
+.spb-back:focus-visible,.spb-brand:focus-visible,.spb-login:focus-visible,.spb-cta:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px}
+.spb-cta-arrow{font-size:18px;line-height:.6}
+.spb-event-card{position:relative;padding:34px 30px 30px;border:1px solid rgba(255,255,255,.17);border-radius:28px;background:linear-gradient(145deg,rgba(255,255,255,.16),rgba(255,255,255,.055));box-shadow:0 24px 55px rgba(6,17,37,.3);backdrop-filter:blur(10px)}
+.spb-event-card::after{content:"";position:absolute;inset:auto 18px 0;height:4px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,var(--spb-teal),var(--spb-purple),var(--spb-orange))}
+.spb-wordmark-wrap{display:flex;align-items:center;justify-content:center;min-height:178px;padding:20px;border:1px solid rgba(255,255,255,.16);border-radius:20px;background:var(--spb-off-white);box-shadow:inset 0 0 0 1px rgba(26,43,74,.04)}
+.spb-wordmark{display:block;width:100%;max-width:300px;height:auto;max-height:132px}
+.spb-card-rule{width:64px;height:3px;margin:25px 0 20px;border-radius:8px;background:linear-gradient(90deg,var(--spb-teal),var(--spb-orange))}
+.spb-card-title{margin:0;color:var(--spb-white);font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;line-height:1.25}
+.spb-card-copy{margin:10px 0 0;color:rgba(255,255,255,.73);font-size:14px;line-height:1.65}
+.spb-facts{position:relative;z-index:1;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;max-width:1200px;margin:54px auto 0;padding-top:25px;border-top:1px solid rgba(255,255,255,.15)}
+.spb-fact{display:inline-flex;align-items:center;min-height:36px;padding:7px 13px;border:1px solid rgba(255,255,255,.15);border-radius:999px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.82);font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;letter-spacing:.07em;line-height:1.25;text-align:center}
+@media(max-width:900px){.spb-hero{padding:72px 22px}.spb-nav{margin-bottom:48px}.spb-shell{gap:42px}.spb-title{font-size:clamp(38px,6.3vw,56px)}.spb-lead{font-size:17px}.spb-event-card{padding:28px 24px 26px}}
+@media(max-width:700px){.spb-hero{padding:56px 18px}.spb-nav{gap:8px;margin-bottom:42px}.spb-back,.spb-brand,.spb-login{font-size:12px}.spb-login{padding:7px 12px}.spb-shell{grid-template-columns:1fr;gap:34px}.spb-copy{max-width:none;text-align:center}.spb-eyebrow{margin-bottom:18px;font-size:10px}.spb-title{max-width:600px;margin-right:auto;margin-left:auto;font-size:clamp(34px,10vw,48px)}.spb-lead,.spb-support{margin-right:auto;margin-left:auto}.spb-lead{font-size:16px}.spb-support{font-size:14px}.spb-cta{width:100%;margin-top:27px;padding:17px 20px}.spb-event-card{max-width:540px;margin:0 auto}.spb-facts{margin-top:42px;padding-top:21px;gap:8px}.spb-fact{font-size:9px}}
+@media(max-width:390px){.spb-nav{gap:5px}.spb-back,.spb-login{font-size:12px}.spb-login{padding:7px 10px}.spb-title{font-size:33px}.spb-wordmark-wrap{min-height:145px;padding:16px}.spb-event-card{padding:24px 18px}.spb-fact{padding:7px 10px}}
+</style>
+
+<section class="spb-hero" aria-labelledby="spb-hero-title">
+  <nav class="spb-nav" aria-label="PepTribe navigation">
+    <div class="spb-nav-left"><a class="spb-back" href="https://peptribe.us">Back to PepTribe</a></div>
+    <div class="spb-nav-center"><a class="spb-brand" href="https://peptribe.us" aria-label="PepTribe home">PEP<span class="spb-brand-mark">TRIBE</span></a></div>
+    <div class="spb-nav-right"><a class="spb-login" href="https://peptribe.app.clientclub.net/login">Login</a></div>
+  </nav>
+
+  <div class="spb-shell">
+    <div class="spb-copy">
+      <p class="spb-eyebrow">OCTOBER 10, 2026 - AUSTIN, TEXAS</p>
+      <h1 class="spb-title" id="spb-hero-title">MAXIMIZE YOUR <span class="spb-title-accent">IMPACT.</span><br>GROW YOUR BRAND.</h1>
+      <p class="spb-lead">Sponsor the Get Busy Living or Get Busy Dying Health and Wellness Experience.</p>
+      <p class="spb-support">Choose a sponsorship package designed to create visibility, PepTribe platform exposure, brand integration, and meaningful networking at this event.</p>
+      <a class="spb-cta" href="#full-benefits">EXPLORE SPONSOR LEVELS <span class="spb-cta-arrow" aria-hidden="true">-&gt;</span></a>
+    </div>
+
+    <aside class="spb-event-card" aria-label="Get Busy Living or Get Busy Dying event">
+      <div class="spb-wordmark-wrap">
+        <!-- Replace this local preview src with the hosted HighLevel/CDN event-wordmark URL before publishing. -->
+        <img class="spb-wordmark" src="https://assets.cdn.filesafe.space/AOSIbdI8smVgzE3kDr0X/media/6a88c901755bb8d5d5969dd1.png" alt="Get Busy Living or Get Busy Dying event logo">
+      </div>
+      <div class="spb-card-rule"></div>
+      <h2 class="spb-card-title">A once in a lifetime experience for health, wellness, and connection.</h2>
+      <p class="spb-card-copy">Put your brand in the room with an engaged audience through an event built for discovery, conversation, and shared momentum.</p>
+    </aside>
+  </div>
+
+  <div class="spb-facts" aria-label="Event details">
+    <span class="spb-fact">OCTOBER 10, 2026</span>
+    <span class="spb-fact">AUSTIN, TEXAS</span>
+    <span class="spb-fact">HEALTH AND WELLNESS EXPERIENCE</span>
+    <span class="spb-fact">ACTIVITIES AND PRIZE GIVEAWAYS</span>
+    <span class="spb-fact">NETWORKING</span>
+  </div>
+</section>
