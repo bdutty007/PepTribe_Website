@@ -19,8 +19,8 @@ Order follows the supplied Dashboard Local screenshot, left to right and top to 
 | Thank you! | Skipped: native store to be rebuilt on new platform | |
 | Wellness Tribe | All 6 code sections imported; assembly pending | wellness-tribe-section-01.html, wellness-tribe-section-02.html, wellness-tribe-section-03.html, wellness-tribe-section-04.html, wellness-tribe-section-05.html, wellness-tribe-section-06.html |
 | Sponsor Signup | All 5 supplied blocks imported; blocks 3/4 internally labeled Sections 4/5; assembly pending | sponsor-signup-section-01.html, sponsor-signup-section-02.html, sponsor-signup-section-03.html, sponsor-signup-section-04.html, sponsor-signup-section-05.html |
-| Get Busy Living Sponsor Si... | Next: awaiting full title/code | |
-| PepTribe Questionnaire | Unpublished; awaiting code | |
-| Pep-Card Member Library | Awaiting code | |
-| Pep-Cards | Awaiting code | |
+| Get Busy Living Sponsor Si... | Skipped by user | |
+| PepTribe Questionnaire | Skipped by user (unpublished) | |
+| Pep-Card Member Library | Supplied HTML imported unchanged | pep-card-member-library.html |
+| Pep-Cards | Next: awaiting code | |
 | Get Busy Living | Awaiting code | |
